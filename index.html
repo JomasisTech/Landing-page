@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Creation Masterclass — Growth Motion Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #070707;
+  --white: #f4f1ec;
+  --cream: #ede8df;
+  --orange: #ff5218;
+  --orange-glow: rgba(255,82,24,0.25);
+  --gold: #d4a84b;
+  --gold-light: #e8c87a;
+  --gray: #141414;
+  --mid: #232323;
+  --muted: #666;
+  --border: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; line-height: 1.08; }
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 1.1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(7,7,7,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav-brand em { color: var(--orange); font-style: normal; }
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.nav-pill:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 9rem 1.5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -10%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse, rgba(255,82,24,0.2) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.hero-glow2 {
+  position: absolute;
+  bottom: -5%; right: -10%;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(212,168,75,0.1) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.7s ease both;
+}
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 .accent { color: var(--orange); }
+.hero h1 .underline-gold {
+  position: relative;
+  display: inline-block;
+}
+.hero h1 .underline-gold::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(244,241,236,0.65);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  padding: 1rem 2.4rem;
+  border-radius: 3px;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 40px rgba(255,82,24,0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(255,82,24,0.5); }
+
+.price-tag {
+  font-size: 0.9rem;
+  color: rgba(244,241,236,0.45);
+}
+.price-tag strong { color: var(--gold-light); font-size: 1.05rem; }
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 600px;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+.stat-num span { color: var(--orange); }
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* QUALITY SECTION */
+.quality-wrap {
+  padding: 0 1.5rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.quality-banner {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1008 100%);
+  border: 1px solid rgba(212,168,75,0.3);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quality-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.quality-banner::after {
+  content: 'HD';
+  position: absolute;
+  right: 2rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Syne', sans-serif;
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(212,168,75,0.04);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+}
+
+.q-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.quality-banner h2 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  max-width: 680px;
+}
+.quality-banner h2 em { font-style: normal; color: var(--gold-light); }
+
+.quality-banner p {
+  color: rgba(244,241,236,0.6);
+  font-size: 1rem;
+  max-width: 620px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.compare-card {
+  padding: 1.2rem 1.4rem;
+  border-radius: 3px;
+}
+.compare-card.bad {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.compare-card.good {
+  background: rgba(212,168,75,0.08);
+  border: 1px solid rgba(212,168,75,0.2);
+}
+
+.cc-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.compare-card.bad .cc-label { color: var(--muted); }
+.compare-card.good .cc-label { color: var(--gold); }
+
+.cc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: rgba(244,241,236,0.65);
+  margin-bottom: 0.5rem;
+}
+.cc-icon { flex-shrink: 0; margin-top: 2px; font-size: 0.75rem; }
+.compare-card.bad .cc-icon { color: #555; }
+.compare-card.good .cc-icon { color: var(--gold); }
+
+/* CURRICULUM */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  max-width: 600px;
+}
+.section-sub {
+  color: rgba(244,241,236,0.5);
+  font-size: 1rem;
+  max-width: 520px;
+  margin-bottom: 3rem;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.learn-card {
+  background: var(--black);
+  padding: 2rem;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.learn-card:hover { background: #0d0d0d; }
+.learn-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--orange);
+  transition: height 0.3s ease;
+}
+.learn-card:hover::before { height: 100%; }
+
+.learn-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+.learn-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+.learn-card p { font-size: 0.88rem; color: rgba(244,241,236,0.5); line-height: 1.6; }
+
+/* AUDIENCE */
+.audience-section {
+  padding: 5rem 1.5rem;
+  background: var(--gray);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.audience-inner { max-width: 1100px; margin: 0 auto; }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.audience-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.audience-card:hover { border-color: rgba(255,82,24,0.3); }
+.audience-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.audience-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+.audience-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+/* FAQ */
+.faq-section {
+  padding: 5rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item { border-bottom: 1px solid var(--border); padding: 1.8rem 0; }
+
+.faq-q {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.faq-q::before {
+  content: 'Q';
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.2rem 0.45rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  letter-spacing: 0.05em;
+}
+
+.faq-a {
+  font-size: 0.92rem;
+  color: rgba(244,241,236,0.55);
+  padding-left: 2rem;
+  line-height: 1.7;
+}
+
+/* PRICING */
+.pricing-section {
+  padding: 5rem 1.5rem;
+  background: var(--gray);
+  border-top: 1px solid var(--border);
+}
+.pricing-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pricing-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+.pricing-inner .sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.price-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(212,168,75,0.25);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), var(--gold));
+}
+
+.price-card-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.price-amount {
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.price-amount .currency { font-size: 1.4rem; color: var(--gold-light); font-weight: 600; }
+
+.price-once {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.price-includes { text-align: left; margin-bottom: 2rem; }
+
+.pi-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: rgba(244,241,236,0.7);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.check {
+  width: 18px; height: 18px;
+  background: rgba(255,82,24,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--orange);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.btn-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  padding: 1.1rem 2rem;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 0 40px rgba(255,82,24,0.3);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn-buy:hover { opacity: 0.9; transform: translateY(-2px); }
+
+.price-guarantee {
+  margin-top: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+/* FOOTER */
+footer {
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.footer-brand em { color: var(--orange); font-style: normal; }
+footer p { font-size: 0.8rem; color: var(--muted); }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-brand { font-size: 0.78rem; }
+  .hero-stats { gap: 1.5rem; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .quality-banner { padding: 2rem 1.5rem; }
+  .price-amount { font-size: 3rem; }
+  .quality-banner::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Growth <em>Motion</em> Lab</div>
+  <a href="#pricing" class="nav-pill">Get Access — ₦3,800</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="badge">
+    <span class="badge-dot"></span>
+    New Masterclass · Mobile Friendly
+  </div>
+
+  <h1>
+    Create <span class="accent">Stunning</span> AI Videos<br>
+    With Just Your <span class="underline-gold">Phone</span>
+  </h1>
+
+  <p class="hero-sub">
+    Not the basic AI videos flooding your timeline. This masterclass teaches a professional-grade workflow — hyper-realistic avatars, natural voiceovers, high-quality output — entirely from your Android or iPhone.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Start Learning Today
+    </a>
+    <p class="price-tag">One-time payment of <strong>₦3,800</strong> — no subscriptions ever</p>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Mobile-Based</div>
+    </div>
+    <div>
+      <div class="stat-num">HD<span>+</span></div>
+      <div class="stat-label">Video Quality</div>
+    </div>
+    <div>
+      <div class="stat-num">₦<span>0</span></div>
+      <div class="stat-label">Hidden Fees</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY DIFFERENTIATOR -->
+<div class="quality-wrap">
+  <div class="quality-banner">
+    <div class="q-label">⚡ Why This Is Different</div>
+    <h2>This Is Not The <em>Basic AI Video</em><br>You've Seen Online</h2>
+    <p>
+      Most AI video tutorials teach outdated tools that produce robotic, low-quality results — the kind people scroll straight past. What you'll learn here is a completely different level: studio-quality AI videos with hyper-realistic human avatars and natural-sounding voiceovers that actually stop people mid-scroll and command serious client fees.
+    </p>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="cc-label">❌ What Most Teach</div>
+        <div class="cc-item"><span class="cc-icon">—</span> Robotic, stiff avatars</div>
+        <div class="cc-item"><span class="cc-icon">—</span> Unnatural AI voiceovers</div>
+        <div class="cc-item"><span class="cc-icon">—</span> Low-resolution output</div>
+        <div class="cc-item"><span class="cc-icon">—</span> Instantly looks "fake"</div>
+        <div class="cc-item"><span class="cc-icon">—</span> People scroll past it</div>
+      </div>
+      <div class="compare-card good">
+        <div class="cc-label">✦ What You'll Create</div>
+        <div class="cc-item"><span class="cc-icon">✦</span> Hyper-realistic avatars</div>
+        <div class="cc-item"><span class="cc-icon">✦</span> Human-sounding audio</div>
+        <div class="cc-item"><span class="cc-icon">✦</span> High-quality HD output</div>
+        <div class="cc-item"><span class="cc-icon">✦</span> Indistinguishable from real</div>
+        <div class="cc-item"><span class="cc-icon">✦</span> Gets attention & clients</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CURRICULUM -->
+<section class="section">
+  <div class="section-label">The Curriculum</div>
+  <h2>Everything You'll Master Inside</h2>
+  <p class="section-sub">A practical, step-by-step system — not theory. You apply everything as you learn it.</p>
+
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="learn-num">01</div>
+      <h3>AI Avatar Creation</h3>
+      <p>Build hyper-realistic AI avatars that look and move like real humans — not the stiff, obvious fakes that flood timelines.</p>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">02</div>
+      <h3>Professional Voiceovers</h3>
+      <p>Generate natural, emotional AI voiceovers that sound indistinguishable from a real voice artist recording in a studio.</p>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">03</div>
+      <h3>Full Video Workflow</h3>
+      <p>The exact end-to-end process for producing a complete, polished AI video — from idea to final export — entirely on your phone.</p>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">04</div>
+      <h3>Content for Clients</h3>
+      <p>How to package this as a service, approach clients, and get paid to create AI videos for businesses and brands.</p>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">05</div>
+      <h3>No PC Required</h3>
+      <p>Every tool and technique is 100% optimized for Android and iPhone. No desktop, no complicated setup, no excuses.</p>
+    </div>
+    <div class="learn-card">
+      <div class="learn-num">06</div>
+      <h3>Zero Subscription Traps</h3>
+      <p>Every tool shown works without forcing you into expensive monthly fees before you can even practice properly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="audience-section">
+  <div class="audience-inner">
+    <div class="section-label">Who This Is For</div>
+    <h2 style="font-size: clamp(1.8rem,4vw,2.8rem); font-weight:800; margin-bottom:0.5rem;">Built For You, Wherever You Are</h2>
+    <p style="color:var(--muted); font-size:0.95rem;">No experience needed. If you have a phone and ambition, you qualify.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon">🎓</div>
+        <div>
+          <h4>Students</h4>
+          <p>Turn a ₦3,800 investment into a freelance skill that pays you back many times over.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">💼</div>
+        <div>
+          <h4>Job Seekers</h4>
+          <p>Build a valuable digital skill and start earning independently without waiting for employment.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">⚡</div>
+        <div>
+          <h4>Freelancers</h4>
+          <p>Add a high-demand, high-ticket service to your offer. Clients are actively searching for this skill.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🏪</div>
+        <div>
+          <h4>Business Owners</h4>
+          <p>Create your own professional promotional videos without hiring an expensive agency or videographer.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">📱</div>
+        <div>
+          <h4>Content Creators</h4>
+          <p>Upgrade your content quality dramatically and stand out in a crowded, competitive feed.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🌍</div>
+        <div>
+          <h4>Anyone With a Phone</h4>
+          <p>If you can watch a video, you can learn this. No technical background whatsoever required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-label" style="text-align:center;">Common Questions</div>
+  <h2 style="font-size:clamp(1.6rem,4vw,2.5rem); font-weight:800; text-align:center; margin-bottom:2.5rem;">Answered Honestly</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Do I need a laptop or PC?</div>
+    <div class="faq-a">Not at all. Everything in this masterclass is done entirely on a smartphone — Android or iPhone. If you have a phone, you are fully equipped.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Is this the same basic AI video I keep seeing online?</div>
+    <div class="faq-a">No — and this is the most important difference. You'll learn to create high-quality AI videos with hyper-realistic avatars and natural voiceovers that make people stop scrolling. This is not the robotic, low-effort content that floods timelines. The quality gap is significant.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Will the tools force me to subscribe before I can practice?</div>
+    <div class="faq-a">No. Every tool demonstrated is accessible without locking you behind expensive paywalls. You learn it, you apply it immediately — that same day.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I actually make money with this?</div>
+    <div class="faq-a">Yes. The masterclass includes practical guidance on offering this as a paid service to clients and how others are already turning this skill into real, consistent income.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">I have zero technical background. Will I keep up?</div>
+    <div class="faq-a">Absolutely. The workflow is designed to be clear from the very first step. No coding, no complex setups, no prior experience needed — just your phone and a willingness to follow along.</div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label">Simple Pricing</div>
+    <h2>One Payment.<br>Lifetime Access.</h2>
+    <p class="sub">No monthly fees. No hidden upsells. Just the skill.</p>
+
+    <div class="price-card">
+      <div class="price-card-label">✦ AI Video Creation Masterclass</div>
+
+      <div class="price-amount">
+        <span class="currency">₦</span>3,800
+      </div>
+      <div class="price-once">One-time payment · Instant access</div>
+
+      <div class="price-includes">
+        <div class="pi-item"><div class="check">✓</div> Full professional AI video workflow</div>
+        <div class="pi-item"><div class="check">✓</div> Hyper-realistic avatar creation techniques</div>
+        <div class="pi-item"><div class="check">✓</div> Natural AI voiceover training</div>
+        <div class="pi-item"><div class="check">✓</div> 100% mobile-based — Android &amp; iPhone</div>
+        <div class="pi-item"><div class="check">✓</div> Client monetization guide</div>
+        <div class="pi-item"><div class="check">✓</div> No subscription tools required</div>
+        <div class="pi-item"><div class="check">✓</div> Lifetime access — revisit anytime</div>
+      </div>
+
+      <a href="#" class="btn-buy">Get Instant Access — ₦3,800</a>
+
+      <p class="price-guarantee">🔒 Secure payment via Selar · Instant delivery</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Growth <em>Motion</em> Lab</div>
+  <p>© 2025 Growth Motion Lab. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
