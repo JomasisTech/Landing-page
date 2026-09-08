@@ -1,6 +1,6 @@
 # AI Video Creation Masterclass Landing Page
 
-Premium single-page landing page for Growth Motion.
+Premium single-page landing page for DetroPick.
 
 ## Improvements in this revision
 - Strengthened hero CTA and above-the-fold hierarchy.
