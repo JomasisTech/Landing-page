@@ -13,15 +13,17 @@
 
   <style>
     :root{
-      --bg:#090a0c;
-      --surface:#101216;
-      --surface-2:#14171c;
-      --text:#f5f3ee;
-      --muted:#9a9da5;
-      --line:rgba(255,255,255,.09);
-      --lime:#c8f36b;
-      --lime-2:#a9df4b;
-      --warm:#f3d7a0;
+      --bg:#fbfcf8;
+      --surface:#ffffff;
+      --surface-2:#f2f7ed;
+      --text:#102116;
+      --muted:#68746b;
+      --line:#dfe7df;
+      --green:#087a43;
+      --green-2:#075f35;
+      --lime:#b8e66b;
+      --soft:#eaf5e3;
+      --gold:#d5a84b;
       --max:1160px;
       --radius:22px;
     }
@@ -30,8 +32,8 @@
     html{scroll-behavior:smooth}
     body{
       background:
-        radial-gradient(circle at 78% 8%, rgba(200,243,107,.08), transparent 28rem),
-        radial-gradient(circle at 10% 28%, rgba(243,215,160,.045), transparent 24rem),
+        radial-gradient(circle at 85% 0%, rgba(184,230,107,.22), transparent 26rem),
+        radial-gradient(circle at 0% 25%, rgba(8,122,67,.07), transparent 25rem),
         var(--bg);
       color:var(--text);
       font-family:"DM Sans",sans-serif;
@@ -41,7 +43,7 @@
     body:before{
       content:"";
       position:fixed; inset:0; pointer-events:none; z-index:50;
-      opacity:.025;
+      opacity:.018;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     a{color:inherit;text-decoration:none}
@@ -52,32 +54,32 @@
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
     .eyebrow{
       display:inline-flex;align-items:center;gap:9px;
-      color:var(--lime);font-size:12px;font-weight:700;
+      color:var(--green);font-size:12px;font-weight:700;
       letter-spacing:.14em;text-transform:uppercase;
     }
     .eyebrow:before{
-      content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);
+      content:"";width:7px;height:7px;border-radius:50%;background:var(--green);
       box-shadow:0 0 0 5px rgba(200,243,107,.09);
     }
 
     /* Header */
     .header{
       position:fixed;left:0;right:0;top:0;z-index:40;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:rgba(9,10,12,.76);
+      border-bottom:1px solid rgba(16,33,22,.08);
+      background:rgba(251,252,248,.88);
       backdrop-filter:blur(18px);
     }
     .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
     .brand{font-family:"Manrope";font-weight:800;letter-spacing:-.03em;font-size:17px}
-    .brand span{color:var(--lime)}
-    .nav-link{font-size:13px;color:#c6c8cc;margin-right:22px}
+    .brand span{color:var(--green)}
+    .nav-link{font-size:13px;color:#5e6961;margin-right:22px}
     .nav-cta,.cta{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      background:var(--lime);color:#10120d;font-weight:800;
+      background:var(--green);color:#ffffff;font-weight:800;
       border-radius:999px;transition:.2s ease;
     }
     .nav-cta{padding:11px 18px;font-size:13px}
-    .nav-cta:hover,.cta:hover{transform:translateY(-2px);background:#d5fb82}
+    .nav-cta:hover,.cta:hover{transform:translateY(-2px);background:#075f35}
 
     /* Hero */
     .hero{padding:158px 0 80px;position:relative}
@@ -86,30 +88,30 @@
     }
     .hero h1{font-size:clamp(46px,6.2vw,78px);max-width:760px;margin:19px 0 22px}
     .hero h1 .accent{
-      color:var(--lime);
+      color:var(--green);
       text-decoration:underline;
-      text-decoration-thickness:4px;
+      text-decoration-thickness:3px;
       text-underline-offset:8px;
-      text-decoration-color:rgba(200,243,107,.35);
+      text-decoration-color:rgba(8,122,67,.28);
     }
-    .hero-copy{font-size:18px;color:#b4b6bc;max-width:610px}
+    .hero-copy{font-size:18px;color:#5f6c63;max-width:610px}
     .hero-actions{display:flex;align-items:center;gap:18px;margin-top:32px;flex-wrap:wrap}
-    .cta{padding:16px 24px;font-size:15px;box-shadow:0 14px 45px rgba(200,243,107,.12)}
-    .micro{font-size:12px;color:#777b83;margin-top:14px}
+    .cta{padding:16px 24px;font-size:15px;box-shadow:0 14px 40px rgba(8,122,67,.16)}
+    .micro{font-size:12px;color:#7c867f;margin-top:14px}
 
     /* Visual mockup */
     .stage{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center}
-    .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(200,243,107,.09);filter:blur(50px)}
+    .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(8,122,67,.08);filter:blur(50px)}
     .phone{
-      width:286px;height:550px;border:1px solid rgba(255,255,255,.18);border-radius:38px;
-      background:#0c0e11;box-shadow:0 35px 90px rgba(0,0,0,.55), inset 0 0 0 7px #08090b;
+      width:286px;height:550px;border:1px solid rgba(8,122,67,.18);border-radius:38px;
+      background:#17231b;box-shadow:0 30px 75px rgba(18,61,35,.18), inset 0 0 0 7px #eef5eb;
       padding:12px;position:relative;z-index:2;transform:rotate(3deg);
     }
     .phone-screen{
       height:100%;border-radius:28px;overflow:hidden;position:relative;
       background:
-        linear-gradient(145deg,rgba(200,243,107,.13),transparent 35%),
-        linear-gradient(180deg,#1b2024,#090a0c);
+        linear-gradient(145deg,rgba(184,230,107,.35),transparent 38%),
+        linear-gradient(180deg,#dfeedd,#9bb99e);
     }
     .phone-top{display:flex;justify-content:space-between;padding:17px 16px;color:#e8e8e5;font-size:9px}
     .video-person{
@@ -123,29 +125,29 @@
     .video-person:after{
       content:"PRODUCT STORY";position:absolute;left:15px;bottom:15px;
       font:700 10px "Manrope";letter-spacing:.1em;color:white;
-      background:rgba(0,0,0,.48);padding:7px 9px;border-radius:6px;
+      background:rgba(8,35,20,.62);padding:7px 9px;border-radius:6px;
     }
     .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-      width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.9);
-      display:grid;place-items:center;color:#10120d}
+      width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.95);
+      display:grid;place-items:center;color:#ffffff}
     .play:after{content:"";margin-left:3px;border-left:10px solid #111;border-top:7px solid transparent;border-bottom:7px solid transparent}
-    .phone-bottom{position:absolute;bottom:22px;left:20px;right:20px;height:5px;background:rgba(255,255,255,.16);border-radius:20px}
+    .phone-bottom{position:absolute;bottom:22px;left:20px;right:20px;height:5px;background:rgba(255,255,255,.65);border-radius:20px}
 
     .float-card{
-      position:absolute;z-index:3;background:rgba(18,20,24,.9);border:1px solid var(--line);
+      position:absolute;z-index:3;background:rgba(255,255,255,.94);border:1px solid var(--line);
       border-radius:15px;padding:13px 15px;box-shadow:0 20px 50px rgba(0,0,0,.35);backdrop-filter:blur(14px)
     }
     .float-card strong{display:block;font:800 12px "Manrope";margin-bottom:3px}
-    .float-card small{font-size:11px;color:#9699a0}
+    .float-card small{font-size:11px;color:#68746b}
     .float-one{right:2%;top:18%}.float-two{left:2%;bottom:18%}
-    .tiny-check{color:var(--lime);margin-right:5px}
+    .tiny-check{color:var(--green);margin-right:5px}
 
     .proof{
       margin-top:62px;padding-top:22px;border-top:1px solid var(--line);
       display:grid;grid-template-columns:repeat(3,1fr);gap:20px
     }
     .proof-item strong{font:800 20px "Manrope";display:block}
-    .proof-item span{font-size:12px;color:#777b83}
+    .proof-item span{font-size:12px;color:#7c867f}
 
     /* Sections */
     section.block{padding:105px 0}
@@ -165,7 +167,7 @@
     }
     .num{font:800 12px "Manrope";color:#6d7178;padding-top:3px}
     .problem-item h3{font-size:17px;letter-spacing:-.02em;margin-bottom:4px}
-    .problem-item p{font-size:14px;color:#83868d}
+    .problem-item p{font-size:14px;color:#68746b}
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{
@@ -173,57 +175,57 @@
       border:1px solid var(--line);border-radius:18px;padding:28px;min-height:250px;
       transition:.25s ease
     }
-    .card:hover{transform:translateY(-4px);border-color:rgba(200,243,107,.25)}
-    .card-index{font:700 11px "Manrope";color:var(--lime);letter-spacing:.12em}
+    .card:hover{transform:translateY(-4px);border-color:rgba(8,122,67,.28)}
+    .card-index{font:700 11px "Manrope";color:var(--green);letter-spacing:.12em}
     .card h3{font-size:22px;margin:45px 0 10px}
-    .card p{color:#8e9198;font-size:14px}
+    .card p{color:#69756d;font-size:14px}
 
     .feature-band{
-      background:#0f1114;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+      background:#f1f6ed;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
     }
     .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
     .feature-copy h2{font-size:clamp(34px,4.2vw,52px);margin:15px 0}
-    .feature-copy p{color:#95989f;max-width:520px}
+    .feature-copy p{color:#68746b;max-width:520px}
     .steps{display:grid;gap:9px}
     .step{
       display:flex;gap:18px;align-items:center;padding:17px 18px;
       border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)
     }
-    .step b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(200,243,107,.1);color:var(--lime);font:800 11px "Manrope";flex:0 0 auto}
+    .step b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(8,122,67,.08);color:var(--green);font:800 11px "Manrope";flex:0 0 auto}
     .step span{font-size:14px;color:#c8c9cc}
 
     .audience{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .audience-item{padding:23px;border:1px solid var(--line);border-radius:15px}
     .audience-item h3{font-size:18px;margin-bottom:7px}
-    .audience-item p{font-size:14px;color:#858890}
+    .audience-item p{font-size:14px;color:#68746b}
 
     .faq{max-width:820px}
     details{border-top:1px solid var(--line);padding:21px 0}
     details:last-child{border-bottom:1px solid var(--line)}
     summary{cursor:pointer;list-style:none;font:700 16px "Manrope";display:flex;justify-content:space-between;gap:20px}
     summary::-webkit-details-marker{display:none}
-    summary:after{content:"+";color:var(--lime);font-size:22px;font-weight:400}
+    summary:after{content:"+";color:var(--green);font-size:22px;font-weight:400}
     details[open] summary:after{content:"–"}
-    details p{color:#858890;font-size:14px;max-width:720px;padding:13px 38px 0 0}
+    details p{color:#68746b;font-size:14px;max-width:720px;padding:13px 38px 0 0}
 
     .offer{
       background:
         radial-gradient(circle at 15% 20%,rgba(200,243,107,.11),transparent 25rem),
         #111419;
-      border:1px solid rgba(200,243,107,.2);border-radius:24px;padding:52px;
+      border:1px solid rgba(8,122,67,.18);border-radius:24px;padding:52px;
       display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center
     }
     .offer h2{font-size:clamp(34px,4.3vw,52px);margin:15px 0}
-    .offer-copy{color:#93969d;max-width:620px}
+    .offer-copy{color:#68746b;max-width:620px}
     .included{display:grid;gap:10px;margin-top:26px}
-    .included div{font-size:14px;color:#c9cacf}
-    .included i{font-style:normal;color:var(--lime);margin-right:9px}
-    .price-box{background:#090b0d;border:1px solid var(--line);border-radius:18px;padding:30px;text-align:center}
-    .price-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#777b82}
+    .included div{font-size:14px;color:#4f5c53}
+    .included i{font-style:normal;color:var(--green);margin-right:9px}
+    .price-box{background:#ffffff;border:1px solid var(--line);border-radius:18px;padding:30px;text-align:center}
+    .price-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#69756d}
     .price{font:800 49px "Manrope";letter-spacing:-.05em;margin:8px 0 3px}
-    .price-sub{font-size:12px;color:#777b82;margin-bottom:22px}
+    .price-sub{font-size:12px;color:#69756d;margin-bottom:22px}
     .price-box .cta{width:100%}
-    .secure{font-size:11px;color:#6f737a;margin-top:13px}
+    .secure{font-size:11px;color:#7c867f;margin-top:13px}
 
     footer{padding:36px 0;border-top:1px solid var(--line)}
     .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
@@ -254,6 +256,15 @@
       .offer{padding:28px 20px}
       .footer-row{flex-direction:column;align-items:flex-start}
     }
+
+    .essentials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+    .essential{padding:24px;border:1px solid var(--line);background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(7,95,53,.05)}
+    .essential span{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--green)}
+    .essential h3{margin:22px 0 9px;font-size:18px}
+    .essential p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
+    .mobile-cta{display:none}
+    @media(max-width:900px){.essentials-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.essentials-grid{grid-template-columns:1fr}.mobile-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 18px;border-radius:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.18)}body{padding-bottom:78px}}
   </style>
 </head>
 
@@ -272,20 +283,20 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">AI Video Creation Masterclass</div>
+          <div class="eyebrow">For Nigerian creators • AI Video Masterclass</div>
           <h1>Create <span class="accent">product videos</span> with AI — using the phone you already have.</h1>
           <p class="hero-copy">
-            Learn a practical workflow for creating realistic AI videos for products, social media, promotions and affiliate marketing — without needing a camera crew or a computer.
+            Learn a practical, phone-first workflow for creating product videos, promotional content and affiliate marketing videos — even if you are starting from scratch.
           </p>
           <div class="hero-actions">
-            <a class="cta" href="https://selar.com/4nu1810cf6">Start the Masterclass <span>→</span></a>
+            <a class="cta" href="https://selar.com/4nu1810cf6">Get access for ₦3,800 <span>→</span></a>
           </div>
-          <p class="micro">One-time payment · ₦3,800 · Instant access via Selar</p>
+          <p class="micro">One-time payment · ₦3,800 · Checkout and delivery via Selar</p>
 
           <div class="proof">
             <div class="proof-item"><strong>Phone-first</strong><span>Android & iPhone workflows</span></div>
             <div class="proof-item"><strong>Practical</strong><span>Follow along as you learn</span></div>
-            <div class="proof-item"><strong>Flexible</strong><span>Products, clients & content</span></div>
+            <div class="proof-item"><strong>Versatile</strong><span>Products, clients & content</span></div>
           </div>
         </div>
 
@@ -375,6 +386,22 @@
       </div>
     </section>
 
+    <section class="block essentials">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Before you start</div>
+          <h2>Simple setup. Practical expectations.</h2>
+          <p>Everything here is designed to reduce the friction between having an idea and publishing a finished video.</p>
+        </div>
+        <div class="essentials-grid">
+          <div class="essential"><span>01</span><h3>Your phone</h3><p>Follow the core workflow from an Android phone or iPhone. A laptop is not required for the main process.</p></div>
+          <div class="essential"><span>02</span><h3>Internet access</h3><p>You will use online AI tools, so a reliable internet connection is important when following the lessons.</p></div>
+          <div class="essential"><span>03</span><h3>A willingness to practise</h3><p>The masterclass teaches a process. Your results will improve as you practise the workflow with different products and ideas.</p></div>
+          <div class="essential"><span>04</span><h3>Tools can change</h3><p>AI platforms update frequently. The goal is to understand the workflow so you can adapt as individual tools evolve.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="block">
       <div class="wrap">
         <div class="section-head">
@@ -397,8 +424,8 @@
         <div class="offer">
           <div>
             <div class="eyebrow">Start creating</div>
-            <h2>Your next product video can start with your phone.</h2>
-            <p class="offer-copy">Get access to the AI Video Creation Masterclass and learn a practical workflow you can keep applying to products, promotions, content and affiliate marketing.</p>
+            <h2>Learn the skill. Then put it to work.</h2>
+            <p class="offer-copy">Learn a practical AI video workflow you can apply to product promotions, social content, affiliate marketing and client projects.</p>
             <div class="included">
               <div><i>✓</i> Practical AI video creation workflow</div>
               <div><i>✓</i> Product & promotional video lessons</div>
@@ -413,13 +440,15 @@
             <div class="price-label">AI Video Creation Masterclass</div>
             <div class="price">₦3,800</div>
             <div class="price-sub">One-time payment</div>
-            <a class="cta" href="https://selar.com/4nu1810cf6">Get Instant Access →</a>
+            <a class="cta" href="https://selar.com/4nu1810cf6">Join the Masterclass — ₦3,800 →</a>
             <div class="secure">Secure checkout & delivery via Selar</div>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="mobile-cta"><a href="https://selar.com/4nu1810cf6">Get the Masterclass — ₦3,800 <span>→</span></a></div>
 
   <footer>
     <div class="wrap footer-row">
