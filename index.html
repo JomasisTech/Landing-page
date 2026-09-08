@@ -231,6 +231,44 @@
     .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
     footer p{font-size:12px;color:#656970}
 
+    /* Conversion + accessibility polish */
+    .header.scrolled{box-shadow:0 10px 30px rgba(16,33,22,.07)}
+    .nav-cta,.cta,.mobile-cta a{white-space:nowrap}
+    .cta:focus-visible,.nav-cta:focus-visible,.nav-link:focus-visible,.mobile-cta a:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid rgba(184,230,107,.9);outline-offset:4px}
+    .hero-actions .cta{min-height:54px}
+    .hero-note{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:#637068}
+    .hero-note b{color:var(--green)}
+    .proof-item{padding-right:10px}
+    .card{background:var(--surface);box-shadow:0 10px 30px rgba(16,33,22,.045)}
+    .card:hover{box-shadow:0 18px 40px rgba(16,33,22,.09)}
+    .step{background:#fff}
+    .step span{color:#536158}
+    .problem-note{color:#536158}
+    .offer{box-shadow:0 25px 70px rgba(16,33,22,.12)}
+    .offer .eyebrow{color:#b8e66b}
+    .offer .eyebrow:before{background:#b8e66b;box-shadow:0 0 0 5px rgba(184,230,107,.10)}
+    .offer h2{color:#fff}
+    .offer-copy{color:#c6d0c8}
+    .included div{color:#d6ded8}
+    .included i{color:#b8e66b}
+    .price-box{box-shadow:0 18px 45px rgba(0,0,0,.18)}
+    .section-head p,.feature-copy p{max-width:650px}
+    .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:980px}
+    @media(max-width:620px){
+      .hero-actions{margin-top:26px}
+      .hero-actions .cta{width:100%;padding:15px 20px}
+      .hero-note{align-items:flex-start}
+      .proof{grid-template-columns:1fr 1fr 1fr}
+      .proof-item:last-child{grid-column:auto}
+      .proof-item strong{font-size:15px}
+      .proof-item span{display:block;line-height:1.4;margin-top:3px}
+      .float-card{padding:11px 12px}
+      .float-card small{font-size:10px}
+      .offer h2{font-size:35px}
+      .price{font-size:44px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
     @media(max-width:900px){
       .hero-grid,.problem,.feature-grid,.offer{grid-template-columns:1fr;gap:45px}
       .stage{min-height:500px}
@@ -265,6 +303,21 @@
     .mobile-cta{display:none}
     @media(max-width:900px){.essentials-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:620px){.essentials-grid{grid-template-columns:1fr}.mobile-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 18px;border-radius:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.18)}body{padding-bottom:78px}}
+
+    .hero-secondary{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:13px;font-weight:700;color:#526057;border-bottom:1px solid rgba(8,122,67,.25);padding-bottom:2px}
+    .hero-secondary:hover{color:var(--green)}
+    .hero-risk{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:#68746b}
+    .hero-risk span{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--soft);color:var(--green);font-weight:800;font-size:11px}
+    .outcomes{background:#f3f7ef;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .outcome{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;min-height:205px;box-shadow:0 8px 28px rgba(16,33,22,.04)}
+    .outcome>span{font:800 11px "Manrope";color:var(--green);letter-spacing:.12em}
+    .outcome h3{font-size:19px;margin:25px 0 9px}
+    .outcome p{font-size:14px;color:var(--muted)}
+    .footer-actions{display:flex;gap:18px;font-size:12px;font-weight:700;color:#56635a}
+    .footer-actions a:hover{color:var(--green)}
+    @media(max-width:900px){.outcome-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.outcome-grid{grid-template-columns:1fr}.outcome{min-height:auto}.footer-actions{width:100%;justify-content:space-between;gap:10px;flex-wrap:wrap}}
   </style>
 </head>
 
@@ -274,7 +327,7 @@
       <a class="brand" href="#" aria-label="Growth Motion home">Growth <span>Motion</span></a>
       <div>
         <a class="nav-link" href="#curriculum">What you'll learn</a>
-        <a class="nav-cta" href="https://selar.com/4nu1810cf6">Get the Masterclass — ₦3,800</a>
+        <a class="nav-cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Get the Masterclass — ₦3,800</a>
       </div>
     </div>
   </header>
@@ -289,9 +342,11 @@
             Learn a practical, phone-first workflow for creating product videos, promotional content and affiliate marketing videos — even if you are starting from scratch.
           </p>
           <div class="hero-actions">
-            <a class="cta" href="https://selar.com/4nu1810cf6">Get access for ₦3,800 <span>→</span></a>
+            <a class="cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Start Creating With AI — ₦3,800 <span>→</span></a>
           </div>
-          <p class="micro">One-time payment · ₦3,800 · Checkout and delivery via Selar</p>
+          <a class="hero-secondary" href="#curriculum">See what you’ll learn <span>↓</span></a>
+          <p class="micro">One-time payment · Instant access · Checkout via Selar</p>
+          <div class="hero-note"><b>✓</b> Beginner-friendly · Phone-first · No laptop required for the core workflow</div><div class="hero-risk"><span>✓</span> Learn at your own pace · Practical lessons · No complicated setup</div>
 
           <div class="proof">
             <div class="proof-item"><strong>Phone-first</strong><span>Android & iPhone workflows</span></div>
@@ -328,6 +383,22 @@
           <div class="problem-item"><span class="num">02</span><div><h3>Generic videos get ignored</h3><p>Using AI is not the same as making a convincing product demonstration or promotion.</p></div></div>
           <div class="problem-item"><span class="num">03</span><div><h3>Most tutorials stop at generation</h3><p>Creating a clip is only one part. You also need a useful concept, voice, structure and a finished video.</p></div></div>
           <div class="problem-item"><span class="num">04</span><div><h3>People want a practical starting point</h3><p>This masterclass is built around doing — not drowning you in theory or technical jargon.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block outcomes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What you’ll be able to do</div>
+          <h2>Turn one skill into many kinds of content.</h2>
+          <p>The same core workflow can be adapted to the content you already want to create or the services you want to offer.</p>
+        </div>
+        <div class="outcome-grid">
+          <div class="outcome"><span>01</span><h3>Product demonstrations</h3><p>Show a product clearly with short-form visuals designed for attention and understanding.</p></div>
+          <div class="outcome"><span>02</span><h3>Promotional content</h3><p>Build videos around a hook, benefit and clear message instead of random AI-generated clips.</p></div>
+          <div class="outcome"><span>03</span><h3>Affiliate videos</h3><p>Create useful product-focused content that can support your affiliate marketing strategy.</p></div>
+          <div class="outcome"><span>04</span><h3>Client projects</h3><p>Adapt the workflow for brands, small businesses and freelance creative work.</p></div>
         </div>
       </div>
     </section>
@@ -440,21 +511,31 @@
             <div class="price-label">AI Video Creation Masterclass</div>
             <div class="price">₦3,800</div>
             <div class="price-sub">One-time payment</div>
-            <a class="cta" href="https://selar.com/4nu1810cf6">Join the Masterclass — ₦3,800 →</a>
-            <div class="secure">Secure checkout & delivery via Selar</div>
+            <a class="cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Join the Masterclass — ₦3,800 →</a>
+            <div class="secure">✓ Secure checkout · ✓ One-time payment · ✓ Selar delivery</div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="mobile-cta"><a href="https://selar.com/4nu1810cf6">Get the Masterclass — ₦3,800 <span>→</span></a></div>
+  <div class="mobile-cta"><a href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Get the Masterclass — ₦3,800 <span>→</span></a></div>
 
   <footer>
     <div class="wrap footer-row">
       <div class="brand">Growth <span>Motion</span></div>
-      <p>© 2026 Growth Motion. All rights reserved.</p>
+      <div class="footer-actions"><a href="#curriculum">View curriculum</a><a href="https://selar.com/4nu1810cf6">Get the masterclass →</a></div><p>© 2026 Growth Motion. All rights reserved.</p>
     </div>
   </footer>
+
+<script>
+(function(){
+  var header=document.querySelector('.header');
+  if(!header) return;
+  var update=function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+  update();
+  window.addEventListener('scroll', update, {passive:true});
+})();
+</script>
 </body>
 </html>
