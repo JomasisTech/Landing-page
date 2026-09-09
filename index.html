@@ -46,7 +46,7 @@
     .hero{padding:145px 0 78px;background:radial-gradient(circle at 80% 10%,rgba(184,230,107,.2),transparent 28rem),radial-gradient(circle at 5% 35%,rgba(8,122,67,.07),transparent 25rem)}
     .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center}
     .hero h1{font-size:clamp(44px,6.1vw,76px);max-width:760px;margin:17px 0 20px}
-    .hero h1 .accent{color:var(--green);text-decoration:underline;text-decoration-color:rgba(8,122,67,.22);text-decoration-thickness:3px;text-underline-offset:8px}
+    .hero h1 .accent{color:var(--green);font-weight:800;text-decoration:underline;text-decoration-color:rgba(8,122,67,.24);text-decoration-thickness:3px;text-underline-offset:8px}
     .hero-copy{font-size:18px;color:var(--muted);max-width:620px}
     .hero-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:29px}
     .hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.pill{font-size:12px;color:#3f5146;background:#fff;border:1px solid var(--line);padding:8px 11px;border-radius:999px}
@@ -69,11 +69,11 @@
     section{scroll-margin-top:90px}.block{padding:100px 0}.section-head{max-width:760px;margin-bottom:42px}.section-head h2{font-size:clamp(34px,4.4vw,55px);margin:14px 0}.section-head p{font-size:16px;color:var(--muted)}
 
     /* Video proof */
-    .video-section{padding-top:38px}.video-frame{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#0d1711,#1c4a31);border:1px solid rgba(8,122,67,.2);box-shadow:0 22px 55px rgba(14,37,23,.12);display:grid;place-items:center}
+    .video-section{padding-top:38px}.video-frame{position:relative;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#0d1711,#1c4a31);border:1px solid rgba(8,122,67,.2);box-shadow:0 22px 55px rgba(14,37,23,.12);display:grid;place-items:center}
     .video-frame:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(184,230,107,.2),transparent 34%),linear-gradient(120deg,rgba(255,255,255,.06),transparent 55%)}
     .video-content{text-align:center;color:#fff;position:relative;z-index:2;padding:25px}.play{width:70px;height:70px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;margin:0 auto 17px;font-size:24px;padding-left:4px;box-shadow:0 12px 30px rgba(0,0,0,.2)}.video-content h3{font-size:clamp(22px,3vw,32px);margin-bottom:8px}.video-content p{color:rgba(255,255,255,.76);font-size:14px;max-width:540px}.video-note{text-align:center;font-size:12px;color:var(--muted);margin-top:12px}
 
-    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.video-card{min-width:0}.video-card .video-frame{border-radius:20px;box-shadow:0 16px 40px rgba(14,37,23,.12);transition:transform .2s ease,box-shadow .2s ease}.video-card:hover .video-frame{transform:translateY(-3px);box-shadow:0 22px 50px rgba(14,37,23,.16)}.video-card h3{font-size:18px;margin:18px 0 7px}.video-card>p{font-size:13px;color:var(--muted);line-height:1.65}.video-card.is-ready .video-frame{background:#000}.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.feature-banner{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center;border:1px solid rgba(8,122,67,.14);background:#f5faf6;border-radius:24px;padding:34px 38px}.feature-banner h2{font-size:clamp(26px,3vw,38px);margin:10px 0 12px;max-width:720px}.feature-banner p{color:var(--muted);max-width:720px;line-height:1.7}.feature-checks{display:grid;gap:11px;font-weight:700;font-size:14px;color:var(--green)}
+    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}.video-card{max-width:360px;width:100%;margin:0 auto}.video-card{min-width:0}.video-card .video-frame{border-radius:20px;box-shadow:0 16px 40px rgba(14,37,23,.12);transition:transform .2s ease,box-shadow .2s ease}.video-card:hover .video-frame{transform:translateY(-3px);box-shadow:0 22px 50px rgba(14,37,23,.16)}.video-card h3{font-size:18px;margin:18px 0 7px}.video-card>p{font-size:13px;color:var(--muted);line-height:1.65}.video-card.is-ready .video-frame{background:#000}.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.feature-banner{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center;border:1px solid rgba(8,122,67,.14);background:#f5faf6;border-radius:24px;padding:34px 38px}.feature-banner h2{font-size:clamp(26px,3vw,38px);margin:10px 0 12px;max-width:720px}.feature-banner p{color:var(--muted);max-width:720px;line-height:1.7}.feature-checks{display:grid;gap:11px;font-weight:700;font-size:14px;color:var(--green)}
     /* Problem / value */
     .problem{background:var(--dark);color:#fff}.problem .section-head p{color:#aab8af}.problem-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.problem-intro{border-left:2px solid var(--lime);padding-left:23px;color:#c4cec7;font-size:17px}.problem-list{display:grid;gap:0}.problem-item{display:grid;grid-template-columns:38px 1fr;gap:15px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.1)}.problem-item:last-child{border-bottom:0}.num{font:800 11px Manrope;color:var(--lime);padding-top:4px}.problem-item h3{font-size:18px;margin-bottom:5px}.problem-item p{font-size:14px;color:#a8b4ac}
 
@@ -108,7 +108,7 @@
       .video-section{padding-top:20px}.video-frame{border-radius:18px}.play{width:58px;height:58px;font-size:20px}.video-content h3{font-size:21px}.video-content p{font-size:12px}.problem-grid{gap:30px}.problem-intro{font-size:15px}.outcome-grid,.cards,.audience{grid-template-columns:1fr}.outcome{min-height:auto}.card{min-height:0}.card h3{margin-top:27px}.workflow{gap:30px}.offer{padding:30px 20px;border-radius:21px}.offer h2{font-size:36px}.price{font-size:43px}.final{padding:70px 0 105px}.final h2{font-size:39px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:95;padding:9px 12px;background:rgba(248,250,247,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:800}.mobile-cta span{margin-left:8px}.micro{font-size:11px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
-  @media (max-width: 850px){.video-grid{grid-template-columns:1fr}.feature-banner{grid-template-columns:1fr;padding:28px 24px;gap:25px}}
+  @media (max-width: 850px){.video-grid{grid-template-columns:minmax(0,1fr)}.video-card{max-width:420px}.feature-banner{grid-template-columns:1fr;padding:28px 24px;gap:25px}}
 </style>
 </head>
 <body>
@@ -128,15 +128,15 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow">AI Product Promotion Masterclass</div>
-          <h1>Create <span class="accent">realistic product videos</span> with AI — then learn how to put them to work.</h1>
-          <p class="hero-copy">Learn a practical, beginner-friendly workflow for creating AI presenters that can introduce and demonstrate products, generate promotional scripts, edit the final video, and turn the finished content into marketing material for products, affiliate campaigns and businesses.</p>
+          <h1>Create <span class="accent">realistic AI product videos.</span></h1>
+          <p class="hero-copy">Learn how to create AI product presenters, build promotional videos, edit them, and use them to market products and businesses.</p>
           <div class="hero-actions">
             <a class="btn" href="https://selar.com/4nu1810cf6">Join the Masterclass — ₦3,800 <span>→</span></a>
             <a class="btn light" href="#see-it-in-action">See an example ↓</a>
           </div>
           <p class="micro">One-time payment · Instant access via Selar · Learn at your own pace</p>
           <div class="hero-proof" aria-label="Masterclass highlights">
-            <span class="pill">✓ Product videos</span><span class="pill">✓ AI scripts</span><span class="pill">✓ Basic editing</span><span class="pill">✓ Affiliate marketing</span>
+            <span class="pill">✓ Product videos</span><span class="pill">✓ AI scripts</span><span class="pill">✓ Editing</span><span class="pill">✓ Affiliate marketing</span>
           </div>
           <div class="trust-strip">
             <div><strong>Practical</strong><span>Follow along instead of only watching theory.</span></div>
