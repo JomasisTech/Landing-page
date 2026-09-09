@@ -1,22 +1,27 @@
 # DetroPick — AI Product Promotion Masterclass Landing Page
 
-Deployment-ready static landing page for the AI Product Promotion Masterclass.
+Final deployment-ready landing page with the three selected sample videos embedded from Vimeo.
 
-## Included
-- Conversion-focused masterclass positioning
-- ₦3,800 launch offer and existing Selar purchase links
-- Full curriculum: realistic AI presenters, product demonstrations, scripts, editing, product/business promotion, Amazon Associates basics, affiliate workflow, and client/business use
-- Clear **No paid subscription required** positioning for the core workflow, using free services/free-access options
-- Three dedicated Vimeo video slots
-- Responsive mobile layout and sticky purchase CTA
-- SEO/social metadata
+## Files
+- `index.html` — complete landing page
 
-## Adding the three Vimeo videos
-In `index.html`, find the three elements with `data-vimeo-url=""` in the `#see-it-in-action` section.
+## Deployment
+Upload the contents of this ZIP directly to the site root. There is no wrapping folder.
 
-Replace each empty value with its Vimeo URL, for example:
-`data-vimeo-url="https://vimeo.com/123456789"`
+## Sample videos
+The landing page uses three dedicated 9:16 video slots in this order:
+1. CeraVe — `https://vimeo.com/1225432485`
+2. EltaMD — `https://vimeo.com/1225432483`
+3. ELEMIS — `https://vimeo.com/1225432482`
 
-The page automatically converts a normal Vimeo URL into the privacy-friendly Vimeo player embed.
+## Checkout
+The landing page uses the existing Selar checkout URL for the ₦3,800 masterclass.
 
-The free-service statement is intentional: the core lessons are designed so students are not required to purchase monthly AI subscriptions. Individual free services can still have their own usage limits or change their free availability over time.
+## Final QA
+- Three Vimeo embeds verified and mapped to the selected videos.
+- Video frames remain portrait 9:16.
+- No external font dependency.
+- No unresolved DM Sans/Manrope font references.
+- All internal section links resolve.
+- Checkout links use the existing Selar URL.
+- Core free-access/no-paid-subscription messaging retained.
