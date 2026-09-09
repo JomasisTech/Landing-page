@@ -3,652 +3,373 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0c0f">
-  <meta name="description" content="AI Video Creation Masterclass — learn how to create product videos, promotional content and affiliate marketing videos using AI from your phone.">
-  <title>AI Video Creation Masterclass | DetroPick</title>
+  <meta name="theme-color" content="#0b0f0c">
+  <meta name="description" content="Learn how to create realistic AI-powered product promotional videos, edit them, promote products and use the skill for affiliate marketing and business content.">
+  <meta property="og:title" content="AI Product Promotion Masterclass | DetroPick">
+  <meta property="og:description" content="Create realistic AI product promotional videos, edit them and learn how to put the skill to work for products, affiliate marketing and businesses.">
+  <meta property="og:type" content="website">
+  <title>AI Product Promotion Masterclass | DetroPick</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#fbfcf8;
-      --surface:#ffffff;
-      --surface-2:#f2f7ed;
-      --text:#102116;
-      --muted:#68746b;
-      --line:#dfe7df;
-      --green:#087a43;
-      --green-2:#075f35;
-      --lime:#b8e66b;
-      --soft:#eaf5e3;
-      --gold:#d5a84b;
-      --max:1160px;
-      --radius:22px;
+      --bg:#f8faf7; --surface:#fff; --surface-2:#eef6eb; --ink:#0f1c14;
+      --muted:#617067; --line:#dce6de; --green:#087a43; --green-dark:#075f35;
+      --lime:#b8e66b; --dark:#0c120e; --dark-2:#141d17; --max:1160px; --radius:24px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      background:
-        radial-gradient(circle at 85% 0%, rgba(184,230,107,.22), transparent 26rem),
-        radial-gradient(circle at 0% 25%, rgba(8,122,67,.07), transparent 25rem),
-        var(--bg);
-      color:var(--text);
-      font-family:"DM Sans",sans-serif;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-    body:before{
-      content:"";
-      position:fixed; inset:0; pointer-events:none; z-index:50;
-      opacity:.018;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%}
-    button{font:inherit}
-    h1,h2,h3,h4{font-family:"Manrope",sans-serif;letter-spacing:-.035em;line-height:1.08}
-
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.014;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit}
+    h1,h2,h3,h4{font-family:Manrope,sans-serif;line-height:1.08;letter-spacing:-.035em}
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:9px;
-      color:var(--green);font-size:12px;font-weight:700;
-      letter-spacing:.14em;text-transform:uppercase;
-    }
-    .eyebrow:before{
-      content:"";width:7px;height:7px;border-radius:50%;background:var(--green);
-      box-shadow:0 0 0 5px rgba(200,243,107,.09);
-    }
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(184,230,107,.18)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#fff;font-weight:800;border-radius:999px;padding:16px 23px;font-size:15px;box-shadow:0 14px 34px rgba(8,122,67,.18);transition:.2s ease}
+    .btn:hover{transform:translateY(-2px);background:var(--green-dark)}
+    .btn.light{background:#fff;color:var(--ink);box-shadow:none}
+    .btn.full{width:100%}
+    .micro{font-size:12px;color:#7a867f;margin-top:12px}
 
     /* Header */
-    .header{
-      position:fixed;left:0;right:0;top:0;z-index:40;
-      border-bottom:1px solid rgba(16,33,22,.08);
-      background:rgba(251,252,248,.88);
-      backdrop-filter:blur(18px);
-    }
-    .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-family:"Manrope";font-weight:800;letter-spacing:-.03em;font-size:17px}
-    .brand span{color:var(--green)}
-    .nav-link{font-size:13px;color:#5e6961;margin-right:22px}
-    .nav-cta,.cta{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      background:var(--green);color:#ffffff;font-weight:800;
-      border-radius:999px;transition:.2s ease;
-    }
-    .nav-cta{padding:11px 18px;font-size:13px}
-    .nav-cta:hover,.cta:hover{transform:translateY(-2px);background:#075f35}
+    .header{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(248,250,247,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(15,28,20,.08)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font:800 18px Manrope,sans-serif;letter-spacing:-.04em}.brand span{color:var(--green)}
+    .nav-links{display:flex;align-items:center;gap:24px}.nav-link{font-size:13px;color:#58665d}.nav-link:hover{color:var(--green)}
+    .nav .btn{padding:11px 17px;font-size:12px;box-shadow:none}
 
     /* Hero */
-    .hero{padding:158px 0 80px;position:relative}
-    .hero-grid{
-      display:grid;grid-template-columns:1.03fr .97fr;gap:72px;align-items:center
-    }
-    .hero h1{font-size:clamp(46px,6.2vw,78px);max-width:760px;margin:19px 0 22px}
-    .hero h1 .lead-word,.hero h1 .supporting-copy{font-size:.9em}
-    .hero h1 .accent{
-      color:var(--green);
-      text-decoration:underline;
-      text-decoration-thickness:3px;
-      text-underline-offset:8px;
-      text-decoration-color:rgba(8,122,67,.28);
-    }
-    .hero-copy{font-size:18px;color:#5f6c63;max-width:610px}
-    .hero-actions{display:flex;align-items:center;gap:18px;margin-top:32px;flex-wrap:wrap}
-    .cta{padding:16px 24px;font-size:15px;box-shadow:0 14px 40px rgba(8,122,67,.16)}
-    .micro{font-size:12px;color:#7c867f;margin-top:14px}
+    .hero{padding:145px 0 78px;background:radial-gradient(circle at 80% 10%,rgba(184,230,107,.2),transparent 28rem),radial-gradient(circle at 5% 35%,rgba(8,122,67,.07),transparent 25rem)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center}
+    .hero h1{font-size:clamp(44px,6.1vw,76px);max-width:760px;margin:17px 0 20px}
+    .hero h1 .accent{color:var(--green);text-decoration:underline;text-decoration-color:rgba(8,122,67,.22);text-decoration-thickness:3px;text-underline-offset:8px}
+    .hero-copy{font-size:18px;color:var(--muted);max-width:620px}
+    .hero-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:29px}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.pill{font-size:12px;color:#3f5146;background:#fff;border:1px solid var(--line);padding:8px 11px;border-radius:999px}
+    .stage{position:relative;min-height:520px;display:grid;place-items:center}
+    .glow{position:absolute;width:410px;height:410px;border-radius:50%;background:rgba(8,122,67,.1);filter:blur(50px)}
+    .phone{width:286px;height:550px;padding:11px;border-radius:38px;background:#18231b;border:1px solid rgba(8,122,67,.25);box-shadow:0 34px 80px rgba(15,45,27,.22);transform:rotate(3deg);position:relative;z-index:2}
+    .screen{height:100%;border-radius:29px;overflow:hidden;position:relative;background:linear-gradient(155deg,#d9ead7 0%,#91ad96 50%,#34453b 100%)}
+    .screen:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.22),transparent 35%)}
+    .screen-top{display:flex;justify-content:space-between;color:#fff;font-size:9px;padding:15px 15px;position:relative;z-index:2}
+    .presenter{position:absolute;inset:58px 17px 69px;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 53% 30%,#d8bda1 0 9%,transparent 9.5%),radial-gradient(ellipse at 53% 47%,#765c4b 0 18%,transparent 18.5%),linear-gradient(140deg,#65766d 0 35%,#27342d 36% 62%,#b99870 100%)}
+    .presenter:before{content:"AI PRODUCT HOST";position:absolute;left:12px;top:12px;background:rgba(0,0,0,.45);color:#fff;font:800 8px Manrope,sans-serif;letter-spacing:.1em;padding:6px 8px;border-radius:5px}
+    .product{position:absolute;right:18px;bottom:58px;width:65px;height:92px;border-radius:10px 10px 14px 14px;background:linear-gradient(160deg,#f8f2e9,#d9d0c2);box-shadow:0 13px 22px rgba(0,0,0,.25);transform:rotate(-4deg)}
+    .product:before{content:"SKINCARE";position:absolute;left:7px;right:7px;top:32px;text-align:center;font:800 7px Manrope;color:#68736c;letter-spacing:.08em}
+    .product:after{content:"";position:absolute;top:-13px;left:18px;width:29px;height:18px;border-radius:5px 5px 2px 2px;background:#ebe4d9}
+    .screen-caption{position:absolute;left:13px;right:13px;bottom:14px;background:rgba(4,20,12,.72);color:#fff;border-radius:9px;padding:9px 10px;font:700 9px Manrope,sans-serif;letter-spacing:.03em}
+    .float{position:absolute;z-index:3;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 18px 45px rgba(0,0,0,.16)}
+    .float strong{display:block;font:800 12px Manrope}.float small{font-size:11px;color:var(--muted)}.float .check{color:var(--green);margin-right:5px}.float.one{right:1%;top:14%}.float.two{left:0;bottom:17%}
+    .trust-strip{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.trust-strip strong{display:block;font:800 17px Manrope}.trust-strip span{font-size:12px;color:#7a867f}
 
-    /* Visual mockup */
-    .stage{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center}
-    .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(8,122,67,.08);filter:blur(50px)}
-    .phone{
-      width:286px;height:550px;border:1px solid rgba(8,122,67,.18);border-radius:38px;
-      background:#17231b;box-shadow:0 30px 75px rgba(18,61,35,.18), inset 0 0 0 7px #eef5eb;
-      padding:12px;position:relative;z-index:2;transform:rotate(3deg);
-    }
-    .phone-screen{
-      height:100%;border-radius:28px;overflow:hidden;position:relative;
-      background:
-        linear-gradient(145deg,rgba(184,230,107,.35),transparent 38%),
-        linear-gradient(180deg,#dfeedd,#9bb99e);
-    }
-    .phone-top{display:flex;justify-content:space-between;padding:17px 16px;color:#e8e8e5;font-size:9px}
-    .video-person{
-      position:absolute;inset:65px 18px 80px;border-radius:18px;overflow:hidden;
-      background:
-        radial-gradient(circle at 54% 32%, #cdb99e 0 10%, transparent 10.5%),
-        radial-gradient(ellipse at 53% 48%, #765d4c 0 18%, transparent 18.5%),
-        linear-gradient(135deg,#344149,#171b1f 55%,#a98e69);
-      filter:saturate(.85);
-    }
-    .video-person:after{
-      content:"PRODUCT STORY";position:absolute;left:15px;bottom:15px;
-      font:700 10px "Manrope";letter-spacing:.1em;color:white;
-      background:rgba(8,35,20,.62);padding:7px 9px;border-radius:6px;
-    }
-    .phone-bottom{position:absolute;bottom:22px;left:20px;right:20px;height:5px;background:rgba(255,255,255,.65);border-radius:20px}
+    section{scroll-margin-top:90px}.block{padding:100px 0}.section-head{max-width:760px;margin-bottom:42px}.section-head h2{font-size:clamp(34px,4.4vw,55px);margin:14px 0}.section-head p{font-size:16px;color:var(--muted)}
 
-    .float-card{
-      position:absolute;z-index:3;background:rgba(255,255,255,.94);border:1px solid var(--line);
-      border-radius:15px;padding:13px 15px;box-shadow:0 20px 50px rgba(0,0,0,.35);backdrop-filter:blur(14px)
-    }
-    .float-card strong{display:block;font:800 12px "Manrope";margin-bottom:3px}
-    .float-card small{font-size:11px;color:#68746b}
-    .float-one{right:2%;top:18%}.float-two{left:2%;bottom:18%}
-    .tiny-check{color:var(--green);margin-right:5px}
+    /* Video proof */
+    .video-section{padding-top:38px}.video-frame{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#0d1711,#1c4a31);border:1px solid rgba(8,122,67,.2);box-shadow:0 22px 55px rgba(14,37,23,.12);display:grid;place-items:center}
+    .video-frame:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(184,230,107,.2),transparent 34%),linear-gradient(120deg,rgba(255,255,255,.06),transparent 55%)}
+    .video-content{text-align:center;color:#fff;position:relative;z-index:2;padding:25px}.play{width:70px;height:70px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;margin:0 auto 17px;font-size:24px;padding-left:4px;box-shadow:0 12px 30px rgba(0,0,0,.2)}.video-content h3{font-size:clamp(22px,3vw,32px);margin-bottom:8px}.video-content p{color:rgba(255,255,255,.76);font-size:14px;max-width:540px}.video-note{text-align:center;font-size:12px;color:var(--muted);margin-top:12px}
 
-    .proof{
-      margin-top:62px;padding-top:22px;border-top:1px solid var(--line);
-      display:grid;grid-template-columns:repeat(3,1fr);gap:20px
-    }
-    .proof-item strong{font:800 20px "Manrope";display:block}
-    .proof-item span{font-size:12px;color:#7c867f}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.video-card{min-width:0}.video-card .video-frame{border-radius:20px;box-shadow:0 16px 40px rgba(14,37,23,.12);transition:transform .2s ease,box-shadow .2s ease}.video-card:hover .video-frame{transform:translateY(-3px);box-shadow:0 22px 50px rgba(14,37,23,.16)}.video-card h3{font-size:18px;margin:18px 0 7px}.video-card>p{font-size:13px;color:var(--muted);line-height:1.65}.video-card.is-ready .video-frame{background:#000}.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.feature-banner{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center;border:1px solid rgba(8,122,67,.14);background:#f5faf6;border-radius:24px;padding:34px 38px}.feature-banner h2{font-size:clamp(26px,3vw,38px);margin:10px 0 12px;max-width:720px}.feature-banner p{color:var(--muted);max-width:720px;line-height:1.7}.feature-checks{display:grid;gap:11px;font-weight:700;font-size:14px;color:var(--green)}
+    /* Problem / value */
+    .problem{background:var(--dark);color:#fff}.problem .section-head p{color:#aab8af}.problem-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.problem-intro{border-left:2px solid var(--lime);padding-left:23px;color:#c4cec7;font-size:17px}.problem-list{display:grid;gap:0}.problem-item{display:grid;grid-template-columns:38px 1fr;gap:15px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.1)}.problem-item:last-child{border-bottom:0}.num{font:800 11px Manrope;color:var(--lime);padding-top:4px}.problem-item h3{font-size:18px;margin-bottom:5px}.problem-item p{font-size:14px;color:#a8b4ac}
 
-    /* Sections */
-    section.block{padding:105px 0}
-    .section-head{max-width:720px;margin-bottom:48px}
-    .section-head h2{font-size:clamp(34px,4.5vw,55px);margin:14px 0 14px}
-    .section-head p{color:var(--muted);font-size:16px}
+    .outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.outcome{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;min-height:215px;box-shadow:0 8px 28px rgba(16,33,22,.04)}.outcome span{font:800 11px Manrope;color:var(--green);letter-spacing:.12em}.outcome h3{font-size:19px;margin:26px 0 9px}.outcome p{font-size:14px;color:var(--muted)}
 
-    .problem{
-      display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start
-    }
-    .problem-note{
-      border-left:2px solid var(--lime);padding-left:24px;color:#d0d1d3;font-size:17px
-    }
-    .problem-list{display:grid;gap:12px}
-    .problem-item{
-      display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)
-    }
-    .num{font:800 12px "Manrope";color:#6d7178;padding-top:3px}
-    .problem-item h3{font-size:17px;letter-spacing:-.02em;margin-bottom:4px}
-    .problem-item p{font-size:14px;color:#68746b}
+    /* Curriculum */
+    .curriculum{background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;min-height:250px;box-shadow:0 8px 25px rgba(16,33,22,.035)}.card-index{font:800 10px Manrope;color:var(--green);letter-spacing:.14em}.card h3{font-size:21px;margin:43px 0 9px}.card p{font-size:14px;color:var(--muted)}
 
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
-      border:1px solid var(--line);border-radius:18px;padding:28px;min-height:250px;
-      transition:.25s ease
-    }
-    .card:hover{transform:translateY(-4px);border-color:rgba(8,122,67,.28)}
-    .card-index{font:700 11px "Manrope";color:var(--green);letter-spacing:.12em}
-    .card h3{font-size:22px;margin:45px 0 10px}
-    .card p{color:#69756d;font-size:14px}
+    .workflow{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.workflow-copy h2{font-size:clamp(34px,4.2vw,52px);margin:14px 0}.workflow-copy p{color:var(--muted);max-width:540px}.steps{display:grid;gap:9px}.step{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 17px}.step b{width:31px;height:31px;border-radius:50%;background:var(--soft);color:var(--green);display:grid;place-items:center;flex:0 0 auto;font:800 10px Manrope}.step span{font-size:14px;color:#425148}
 
-    .feature-band{
-      background:#f1f6ed;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
-    }
-    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-    .feature-copy h2{font-size:clamp(34px,4.2vw,52px);margin:15px 0}
-    .feature-copy p{color:#68746b;max-width:520px}
-    .steps{display:grid;gap:9px}
-    .step{
-      display:flex;gap:18px;align-items:center;padding:17px 18px;
-      border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)
-    }
-    .step b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(8,122,67,.08);color:var(--green);font:800 11px "Manrope";flex:0 0 auto}
-    .step span{font-size:14px;color:#c8c9cc}
+    /* Who / bonus value */
+    .audience{display:grid;grid-template-columns:1fr 1fr;gap:12px}.audience-item{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}.audience-item h3{font-size:18px;margin-bottom:7px}.audience-item p{font-size:14px;color:var(--muted)}
+    .expectations{margin-top:30px;background:#eef7eb;border:1px solid rgba(8,122,67,.16);border-radius:20px;padding:23px}.expectations strong{font:800 14px Manrope}.expectations p{margin-top:5px;color:var(--muted);font-size:13px}
 
-    .audience{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .audience-item{padding:23px;border:1px solid var(--line);border-radius:15px}
-    .audience-item h3{font-size:18px;margin-bottom:7px}
-    .audience-item p{font-size:14px;color:#68746b}
+    /* Offer */
+    .offer-section{padding-top:65px}.offer{background:linear-gradient(135deg,#0d1711,#14261a);border-radius:26px;padding:52px;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center;overflow:hidden;position:relative}.offer:before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:rgba(184,230,107,.08);right:-170px;top:-200px}.offer .eyebrow{color:var(--lime)}.offer h2{font-size:clamp(35px,4.3vw,54px);color:#fff;margin:14px 0}.offer-copy{color:#b8c5bc;max-width:630px}.included{display:grid;gap:10px;margin-top:24px}.included div{font-size:14px;color:#d3ddd6}.included i{font-style:normal;color:var(--lime);margin-right:8px}.price-box{position:relative;z-index:2;background:#fff;border-radius:20px;padding:27px;box-shadow:0 22px 55px rgba(0,0,0,.2)}.price-label{font:800 11px Manrope;color:var(--green);letter-spacing:.12em;text-transform:uppercase}.price{font:800 47px Manrope;letter-spacing:-.05em;margin-top:6px}.price-sub{font-size:12px;color:#77827b;margin-bottom:20px}.secure{font-size:11px;color:#78837c;text-align:center;margin-top:11px;line-height:1.5}
 
-    .faq{max-width:820px}
-    details{border-top:1px solid var(--line);padding:21px 0}
-    details:last-child{border-bottom:1px solid var(--line)}
-    summary{cursor:pointer;list-style:none;font:700 16px "Manrope";display:flex;justify-content:space-between;gap:20px}
-    summary::-webkit-details-marker{display:none}
-    summary:after{content:"+";color:var(--green);font-size:22px;font-weight:400}
-    details[open] summary:after{content:"–"}
-    details p{color:#68746b;font-size:14px;max-width:720px;padding:13px 38px 0 0}
+    /* FAQ */
+    .faq{max-width:850px}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font:700 16px Manrope}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";font-size:22px;color:var(--green);font-weight:400}.faq details[open] summary:after{content:"–"}.faq details p{padding:12px 38px 0 0;font-size:14px;color:var(--muted)}
 
-    .offer{
-      background:
-        radial-gradient(circle at 15% 20%,rgba(200,243,107,.11),transparent 25rem),
-        #111419;
-      border:1px solid rgba(8,122,67,.18);border-radius:24px;padding:52px;
-      display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center
-    }
-    .offer h2{font-size:clamp(34px,4.3vw,52px);margin:15px 0}
-    .offer-copy{color:#68746b;max-width:620px}
-    .included{display:grid;gap:10px;margin-top:26px}
-    .included div{font-size:14px;color:#4f5c53}
-    .included i{font-style:normal;color:var(--green);margin-right:9px}
-    .price-box{background:#ffffff;border:1px solid var(--line);border-radius:18px;padding:30px;text-align:center}
-    .price-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#69756d}
-    .price{font:800 49px "Manrope";letter-spacing:-.05em;margin:8px 0 3px}
-    .price-sub{font-size:12px;color:#69756d;margin-bottom:22px}
-    .price-box .cta{width:100%}
-    .secure{font-size:11px;color:#7c867f;margin-top:13px}
-
-    footer{padding:36px 0;border-top:1px solid var(--line)}
-    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    footer p{font-size:12px;color:#656970}
-
-    /* Conversion + accessibility polish */
-    .header.scrolled{box-shadow:0 10px 30px rgba(16,33,22,.07)}
-    .nav-cta,.cta,.mobile-cta a{white-space:nowrap}
-    .cta:focus-visible,.nav-cta:focus-visible,.nav-link:focus-visible,.mobile-cta a:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid rgba(184,230,107,.9);outline-offset:4px}
-    .hero-actions .cta{min-height:54px}
-    .hero-note{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:#637068}
-    .hero-note b{color:var(--green)}
-    .proof-item{padding-right:10px}
-    .card{background:var(--surface);box-shadow:0 10px 30px rgba(16,33,22,.045)}
-    .card:hover{box-shadow:0 18px 40px rgba(16,33,22,.09)}
-    .step{background:#fff}
-    .step span{color:#536158}
-    .problem-note{color:#536158}
-    .offer{box-shadow:0 25px 70px rgba(16,33,22,.12)}
-    .offer .eyebrow{color:#b8e66b}
-    .offer .eyebrow:before{background:#b8e66b;box-shadow:0 0 0 5px rgba(184,230,107,.10)}
-    .offer h2{color:#fff}
-    .offer-copy{color:#c6d0c8}
-    .included div{color:#d6ded8}
-    .included i{color:#b8e66b}
-    .price-box{box-shadow:0 18px 45px rgba(0,0,0,.18)}
-    .section-head p,.feature-copy p{max-width:650px}
-    .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:980px}
-    @media(max-width:620px){
-      .hero-actions{margin-top:26px}
-      .hero-actions .cta{width:100%;padding:15px 20px}
-      .hero-note{align-items:flex-start}
-      .proof{grid-template-columns:1fr 1fr 1fr}
-      .proof-item:last-child{grid-column:auto}
-      .proof-item strong{font-size:15px}
-      .proof-item span{display:block;line-height:1.4;margin-top:3px}
-      .float-card{padding:11px 12px}
-      .float-card small{font-size:10px}
-      .offer h2{font-size:35px}
-      .price{font-size:44px}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+    /* Final CTA */
+    .final{text-align:center;padding:90px 0 115px}.final h2{font-size:clamp(37px,5vw,62px);max-width:780px;margin:14px auto}.final p{color:var(--muted);max-width:610px;margin:0 auto}.final .btn{margin-top:25px}.final .micro{margin-top:12px}
+    footer{border-top:1px solid var(--line);padding:26px 0 90px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-row p,.footer-links{font-size:11px;color:#7b867f}.footer-links{display:flex;gap:17px}.footer-links a:hover{color:var(--green)}
+    .mobile-cta{display:none}
 
     @media(max-width:900px){
-      .hero-grid,.problem,.feature-grid,.offer{grid-template-columns:1fr;gap:45px}
-      .stage{min-height:500px}
-      .cards{grid-template-columns:1fr 1fr}
-      .offer{padding:36px}
+      .hero-grid,.problem-grid,.workflow,.offer{grid-template-columns:1fr;gap:45px}.stage{min-height:480px}.outcome-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.offer{padding:38px}.price-box{max-width:430px;width:100%;margin:auto}
     }
-    @media(max-width:620px){
-      .wrap{width:min(calc(100% - 28px),var(--max))}
-      .header .nav-link{display:none}
-      .nav{height:66px}
-      .nav-cta{padding:10px 13px;font-size:12px}
-      .hero{padding:125px 0 55px}
-      .hero h1{font-size:43px;line-height:1.05;letter-spacing:-.045em}
-      .hero h1 .lead-word,.hero h1 .supporting-copy{font-size:.84em}
-      .hero h1 .accent{display:inline-block;font-size:1.08em;font-weight:800;white-space:nowrap;letter-spacing:-.05em;text-underline-offset:11px;margin-bottom:10px}
-      .hero h1 .supporting-copy{display:block;margin-top:2px}
-      .hero-copy{font-size:16px;line-height:1.62}
-      .stage{min-height:455px;transform:scale(.88);margin:-25px 0}
-      .float-one{right:-1%;top:16%}.float-two{left:-2%;bottom:15%}
-      .proof{gap:12px;margin-top:45px}
-      .proof-item strong{font-size:17px}
-      section.block{padding:76px 0}
-      .cards,.audience{grid-template-columns:1fr}
-      .card{min-height:210px}
-      .card h3{margin-top:35px}
-      .offer{padding:28px 20px}
-      .footer-row{flex-direction:column;align-items:flex-start}
+    @media(max-width:640px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}.header{position:fixed}.nav{height:64px}.nav-links .nav-link{display:none}.nav .btn{padding:10px 13px;font-size:11px}
+      .hero{padding:116px 0 58px}.hero h1{font-size:clamp(39px,12vw,54px);margin-top:14px}.hero-copy{font-size:16px}.hero-actions .btn{width:100%}.hero-proof{gap:7px}.pill{font-size:11px}.stage{min-height:445px}.phone{width:238px;height:458px;border-radius:31px}.screen{border-radius:23px}.float{padding:10px 11px}.float strong{font-size:10px}.float small{font-size:9px}.float.one{right:-2%;top:10%}.float.two{left:-2%;bottom:13%}.trust-strip{grid-template-columns:1fr;margin-top:36px;gap:13px}.trust-strip div{display:grid;grid-template-columns:110px 1fr;align-items:baseline}.block{padding:75px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:clamp(32px,9.5vw,45px)}
+      .video-section{padding-top:20px}.video-frame{border-radius:18px}.play{width:58px;height:58px;font-size:20px}.video-content h3{font-size:21px}.video-content p{font-size:12px}.problem-grid{gap:30px}.problem-intro{font-size:15px}.outcome-grid,.cards,.audience{grid-template-columns:1fr}.outcome{min-height:auto}.card{min-height:0}.card h3{margin-top:27px}.workflow{gap:30px}.offer{padding:30px 20px;border-radius:21px}.offer h2{font-size:36px}.price{font-size:43px}.final{padding:70px 0 105px}.final h2{font-size:39px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:95;padding:9px 12px;background:rgba(248,250,247,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:800}.mobile-cta span{margin-left:8px}.micro{font-size:11px}
     }
-
-    .essentials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-    .essential{padding:24px;border:1px solid var(--line);background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(7,95,53,.05)}
-    .essential span{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--green)}
-    .essential h3{margin:22px 0 9px;font-size:18px}
-    .essential p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
-    .mobile-cta{display:none}
-    @media(max-width:900px){.essentials-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.essentials-grid{grid-template-columns:1fr}.mobile-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 18px;border-radius:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.18)}body{padding-bottom:78px}}
-
-    .hero-secondary{display:inline-flex;align-items:center;gap:7px;margin-top:15px;font-size:13px;font-weight:700;color:#526057;border-bottom:1px solid rgba(8,122,67,.25);padding-bottom:2px}
-    .hero-secondary:hover{color:var(--green)}
-    .hero-risk{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:#68746b}
-    .hero-risk span{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--soft);color:var(--green);font-weight:800;font-size:11px}
-    .outcomes{background:#f3f7ef;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .outcome{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;min-height:205px;box-shadow:0 8px 28px rgba(16,33,22,.04)}
-    .outcome>span{font:800 11px "Manrope";color:var(--green);letter-spacing:.12em}
-    .outcome h3{font-size:19px;margin:25px 0 9px}
-    .outcome p{font-size:14px;color:var(--muted)}
-    .footer-actions{display:flex;gap:18px;font-size:12px;font-weight:700;color:#56635a}
-    .footer-actions a:hover{color:var(--green)}
-    @media(max-width:900px){.outcome-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.outcome-grid{grid-template-columns:1fr}.outcome{min-height:auto}.footer-actions{width:100%;justify-content:space-between;gap:10px;flex-wrap:wrap}}
-
-    .free-tools-note {
-      margin-top: 34px;
-      padding: 26px 28px;
-      border: 1px solid rgba(10, 125, 76, .18);
-      border-radius: 22px;
-      background: rgba(10, 125, 76, .055);
-    }
-    .free-tools-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      color: #087b4a;
-    }
-    .free-tools-note h3 {
-      margin: 0 0 8px;
-      font-size: clamp(20px, 2.2vw, 28px);
-      line-height: 1.15;
-    }
-    .free-tools-note p {
-      margin: 0;
-      max-width: 760px;
-      color: #5f6964;
-      line-height: 1.65;
-    }
-    @media (max-width: 640px) {
-      .free-tools-note {
-        margin-top: 24px;
-        padding: 21px 19px;
-        border-radius: 18px;
-      }
-      .free-tools-badge {
-        font-size: 10px;
-        letter-spacing: .09em;
-      }
-      .free-tools-note h3 {
-        font-size: 21px;
-      }
-    }
-
-    .video-proof{padding-top:24px}
-    .video-proof .section-head{max-width:760px}
-    .video-label{font:800 11px "Manrope";letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:10px}
-    .video-frame{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#102116,#173a28);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 45px rgba(16,33,22,.10);display:grid;place-items:center;margin-top:28px}
-    .video-frame:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(184,230,107,.20),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.03),transparent 55%)}
-    .video-placeholder{position:relative;z-index:1;text-align:center;padding:28px;color:#fff}
-    .video-placeholder .play{width:70px;height:70px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;margin:0 auto 17px;box-shadow:0 12px 30px rgba(0,0,0,.18);font-size:24px;padding-left:4px}
-    .video-placeholder h3{font:800 clamp(22px,3vw,30px) "Manrope";margin-bottom:7px}
-    .video-placeholder p{color:rgba(255,255,255,.76);font-size:14px;max-width:520px;margin:auto}
-    .video-caption{font-size:13px;color:var(--muted);text-align:center;margin:13px auto 0;max-width:680px}
-    .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
-    .video-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 10px 28px rgba(16,33,22,.05)}
-    .video-card .video-frame{margin:0;border-radius:13px;box-shadow:none}
-    .video-card h3{font:800 18px "Manrope";margin:15px 8px 4px}
-    .video-card p{font-size:13px;color:var(--muted);margin:0 8px 6px}
-    .video-status{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--green);background:var(--soft);border-radius:999px;padding:6px 10px;margin:0 8px 8px}
-    @media (max-width:640px){.video-proof{padding-top:10px}.video-frame{border-radius:18px;margin-top:22px}.video-placeholder .play{width:60px;height:60px}.video-grid{grid-template-columns:1fr;gap:14px}.video-card .video-frame{border-radius:11px}.video-card h3{font-size:17px}}
-  </style>
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  @media (max-width: 850px){.video-grid{grid-template-columns:1fr}.feature-banner{grid-template-columns:1fr;padding:28px 24px;gap:25px}}
+</style>
 </head>
-
 <body>
   <header class="header">
     <div class="wrap nav">
-      <a class="brand" href="#" aria-label="DetroPick home">DetroPick</a>
-      <div>
-        <a class="nav-link" href="#curriculum">What you'll learn</a>
-        <a class="nav-cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Get the Masterclass — ₦3,800</a>
-      </div>
+      <a class="brand" href="#top" aria-label="DetroPick home">Detro<span>Pick</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="#learn">What you'll learn</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="btn" href="https://selar.com/4nu1810cf6" aria-label="Buy the AI Product Promotion Masterclass for ₦3,800">Get the Masterclass — ₦3,800</a>
+      </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">For Nigerian creators • AI Video Masterclass</div>
-          <h1><span class="lead-word">Create</span> <span class="accent">product videos</span> <span class="supporting-copy">with AI — using the phone you already have.</span></h1>
-          <p class="hero-copy">
-            Learn a practical, phone-first workflow for creating product videos, promotional content and affiliate marketing videos — even if you are starting from scratch.
-          </p>
+          <div class="eyebrow">AI Product Promotion Masterclass</div>
+          <h1>Create <span class="accent">realistic product videos</span> with AI — then learn how to put them to work.</h1>
+          <p class="hero-copy">Learn a practical, beginner-friendly workflow for creating AI presenters that can introduce and demonstrate products, generate promotional scripts, edit the final video, and turn the finished content into marketing material for products, affiliate campaigns and businesses.</p>
           <div class="hero-actions">
-            <a class="cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Start Creating With AI — ₦3,800 <span>→</span></a>
+            <a class="btn" href="https://selar.com/4nu1810cf6">Join the Masterclass — ₦3,800 <span>→</span></a>
+            <a class="btn light" href="#see-it-in-action">See an example ↓</a>
           </div>
-          <a class="hero-secondary" href="#see-it-in-action">See what you can create <span>↓</span></a>
-          <p class="micro">One-time payment · Instant access · Checkout via Selar</p>
-          <div class="hero-note"><b>✓</b> Beginner-friendly · Phone-first · No laptop required for the core workflow</div><div class="hero-risk"><span>✓</span> Learn at your own pace · Practical lessons · No complicated setup</div>
-
-          <div class="proof">
-            <div class="proof-item"><strong>Phone-first</strong><span>Android & iPhone workflows</span></div>
-            <div class="proof-item"><strong>Practical</strong><span>Follow along as you learn</span></div>
-            <div class="proof-item"><strong>Versatile</strong><span>Products, clients & content</span></div>
+          <p class="micro">One-time payment · Instant access via Selar · Learn at your own pace</p>
+          <div class="hero-proof" aria-label="Masterclass highlights">
+            <span class="pill">✓ Product videos</span><span class="pill">✓ AI scripts</span><span class="pill">✓ Basic editing</span><span class="pill">✓ Affiliate marketing</span>
+          </div>
+          <div class="trust-strip">
+            <div><strong>Practical</strong><span>Follow along instead of only watching theory.</span></div>
+            <div><strong>Beginner-friendly</strong><span>Built around a clear, repeatable workflow.</span></div>
+            <div><strong>Versatile</strong><span>Use the skill for products, affiliates or clients.</span></div>
           </div>
         </div>
 
-        <div class="stage" aria-label="Illustration of a mobile AI product video workflow">
+        <div class="stage" aria-label="Illustration of an AI product promotional video">
           <div class="glow"></div>
-          <div class="float-card float-one"><strong><span class="tiny-check">✓</span>Product video</strong><small>Built for social feeds</small></div>
-          <div class="float-card float-two"><strong><span class="tiny-check">✓</span>Affiliate content</strong><small>Turn products into content</small></div>
-
+          <div class="float one"><strong><span class="check">✓</span>AI product host</strong><small>Present and demonstrate a product</small></div>
+          <div class="float two"><strong><span class="check">✓</span>Marketing-ready content</strong><small>Turn the finished video into promotion</small></div>
           <div class="phone">
-            <div class="phone-screen">
-              <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
-              <div class="video-person"></div>
-              <div class="phone-bottom"></div>
+            <div class="screen">
+              <div class="screen-top"><span>9:41</span><span>● ● ●</span></div>
+              <div class="presenter"><div class="product"></div></div>
+              <div class="screen-caption">REALISTIC AI PRODUCT PROMOTION</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="block video-proof" id="see-it-in-action">
+    <section class="block video-section" id="see-it-in-action">
       <div class="wrap">
         <div class="section-head">
-          <div class="video-label">See it in action</div>
-          <h2>See what you'll learn to create.</h2>
-          <p>Watch a real example of the kind of product and promotional video you can create with the AI workflow taught in this masterclass.</p>
+          <div class="eyebrow">See the result</div>
+          <h2>Don't just hear about it. See what you're learning to create.</h2>
+          <p>See real examples of the kind of AI product videos you will learn to create. These three spaces are ready for the demonstration videos from the masterclass.</p>
         </div>
-        <div class="video-frame" data-video-slot="featured">
-          <div class="video-placeholder">
-            <div class="play" aria-hidden="true">▶</div>
-            <h3>Your featured AI product video</h3>
-            <p>Your video will be added here. This space is ready for your hosted video link and thumbnail.</p>
+        <div class="video-grid" aria-label="AI product promotion video examples">
+          <article class="video-card" data-vimeo-url="">
+            <div class="video-frame"><div class="video-content"><div class="play" aria-hidden="true">▶</div><h3>Product Promotion Example</h3><p>Watch a real product-promotion example from the masterclass.</p></div></div>
+            <h3>Realistic AI product host</h3><p>See how an AI presenter can introduce and promote a real product.</p>
+          </article>
+          <article class="video-card" data-vimeo-url="">
+            <div class="video-frame"><div class="video-content"><div class="play" aria-hidden="true">▶</div><h3>Product Demonstration Example</h3><p>Watch a real AI product-demonstration example from the masterclass.</p></div></div>
+            <h3>AI product demonstration</h3><p>See the kind of product demonstration students will learn to create.</p>
+          </article>
+          <article class="video-card" data-vimeo-url="">
+            <div class="video-frame"><div class="video-content"><div class="play" aria-hidden="true">▶</div><h3>Marketing Video Example</h3><p>Watch a real marketing-video example from the masterclass.</p></div></div>
+            <h3>From AI video to promotion</h3><p>See how the finished video can become marketing content for a product or business.</p>
+          </article>
+        </div>
+        <p class="video-note">Three sample-video spaces are ready. Once the Vimeo links are added, visitors will be able to watch the videos directly on this page.</p>
+      </div>
+    </section>
+
+    <section class="block problem">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Why this masterclass</div>
+          <h2>AI can make a clip. The skill is knowing what to do with it.</h2>
+          <p>This masterclass is built around the full journey from product idea to usable promotional content.</p>
+        </div>
+        <div class="problem-grid">
+          <p class="problem-intro">You don't need another list of AI tools. You need a practical workflow that connects the tools to a real marketing outcome.</p>
+          <div class="problem-list">
+            <div class="problem-item"><span class="num">01</span><div><h3>Too many tools, no clear process</h3><p>Learn a simple sequence for turning a product and an idea into a finished video.</p></div></div>
+            <div class="problem-item"><span class="num">02</span><div><h3>Generated clips aren't automatically good ads</h3><p>Learn how to structure the presenter, product message, script and edits around the purpose of the video.</p></div></div>
+            <div class="problem-item"><span class="num">03</span><div><h3>Creating the video is only half the job</h3><p>You'll also learn practical ways to use the finished content for products, affiliate promotion and business marketing.</p></div></div>
+            <div class="problem-item"><span class="num">04</span><div><h3>You need a skill you can reuse</h3><p>The workflow can be adapted to different products, niches, content ideas and client projects.</p></div></div>
           </div>
         </div>
-        <p class="video-caption">Created with AI using the type of workflow taught inside the masterclass.</p>
       </div>
     </section>
 
-
-    <section class="block">
-      <div class="wrap problem">
-        <div>
-          <div class="eyebrow">The real problem</div>
-          <h2 style="font-size:clamp(34px,4.4vw,54px);margin:16px 0 20px">AI is everywhere. Useful AI video skills are not.</h2>
-          <p class="problem-note">The goal isn't to make “AI-looking” videos. It's to learn a repeatable process you can use to create content people actually understand, watch and act on.</p>
-        </div>
-        <div class="problem-list">
-          <div class="problem-item"><span class="num">01</span><div><h3>Too many tools, no workflow</h3><p>You can spend hours jumping between AI tools without knowing what should happen first.</p></div></div>
-          <div class="problem-item"><span class="num">02</span><div><h3>Generic videos get ignored</h3><p>Using AI is not the same as making a convincing product demonstration or promotion.</p></div></div>
-          <div class="problem-item"><span class="num">03</span><div><h3>Most tutorials stop at generation</h3><p>Creating a clip is only one part. You also need a useful concept, voice, structure and a finished video.</p></div></div>
-          <div class="problem-item"><span class="num">04</span><div><h3>People want a practical starting point</h3><p>This masterclass is built around doing — not drowning you in theory or technical jargon.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block outcomes">
+    <section class="block" id="learn">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">What you’ll be able to do</div>
-          <h2>Turn one skill into many kinds of content.</h2>
-          <p>The same core workflow can be adapted to the content you already want to create or the services you want to offer.</p>
+          <div class="eyebrow">What you'll be able to do</div>
+          <h2>One AI video skill. Several ways to use it.</h2>
+          <p>Learn the production side and the marketing side, so the skill doesn't stop when the video is exported.</p>
         </div>
         <div class="outcome-grid">
-          <div class="outcome"><span>01</span><h3>Product demonstrations</h3><p>Show a product clearly with short-form visuals designed for attention and understanding.</p></div>
-          <div class="outcome"><span>02</span><h3>Promotional content</h3><p>Build videos around a hook, benefit and clear message instead of random AI-generated clips.</p></div>
-          <div class="outcome"><span>03</span><h3>Affiliate videos</h3><p>Create useful product-focused content that can support your affiliate marketing strategy.</p></div>
-          <div class="outcome"><span>04</span><h3>Client projects</h3><p>Adapt the workflow for brands, small businesses and freelance creative work.</p></div>
+          <article class="outcome"><span>01</span><h3>Create product demonstrations</h3><p>Build realistic AI-hosted videos that introduce, explain and demonstrate a product.</p></article>
+          <article class="outcome"><span>02</span><h3>Make promotional content</h3><p>Turn product features and benefits into short-form marketing videos with a clear message.</p></article>
+          <article class="outcome"><span>03</span><h3>Support affiliate promotion</h3><p>Learn the basics of Amazon Associates setup and how AI content can support your affiliate strategy.</p></article>
+          <article class="outcome"><span>04</span><h3>Create for businesses</h3><p>Adapt the same workflow for your own business, brands, small businesses or freelance client work.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="block" id="curriculum">
+    <section class="block curriculum">
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow">Inside the masterclass</div>
-          <h2>From idea to finished AI video.</h2>
-          <p>A focused curriculum for people who want to create useful video content, not just experiment with AI.</p>
+          <h2>From product idea to finished promotional video.</h2>
+          <p>Here's the core curriculum. You can expand the lessons later without changing the central promise.</p>
         </div>
-
         <div class="cards">
-          <article class="card"><div class="card-index">MODULE 01</div><h3>AI video foundations</h3><p>Understand the basic workflow, choose the right approach for a project and turn an idea into a workable video concept.</p></article>
-          <article class="card"><div class="card-index">MODULE 02</div><h3>Realistic characters & scenes</h3><p>Learn how to build consistent visual scenes and AI-presenter content designed to feel natural and useful.</p></article>
-          <article class="card"><div class="card-index">MODULE 03</div><h3>Voice & presentation</h3><p>Create narration and presentation that support the product story instead of making the video feel robotic.</p></article>
-          <article class="card"><div class="card-index">MODULE 04</div><h3>Product videos</h3><p>Turn a product, feature or benefit into short-form promotional content suitable for social platforms.</p></article>
-          <article class="card"><div class="card-index">MODULE 05</div><h3>Affiliate marketing videos</h3><p>Learn how to structure content around products you promote, including how to make the video useful before asking for the click.</p></article>
-          <article class="card"><div class="card-index">MODULE 06</div><h3>Client-ready content</h3><p>Explore ways to adapt the same production skill for brands, small businesses, creators and freelance work.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="block feature-band">
-      <div class="wrap feature-grid">
-        <div class="feature-copy">
-          <div class="eyebrow">The workflow</div>
-          <h2>Stop collecting AI tools. Start building a process.</h2>
-          <p>The value is in knowing what to do next. You'll learn a simple production flow that can be adapted to different products and content ideas.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><b>01</b><span>Choose the product, audience and video goal.</span></div>
-          <div class="step"><b>02</b><span>Develop the concept, hook and short script.</span></div>
-          <div class="step"><b>03</b><span>Create the visual content and presenter/scene.</span></div>
-          <div class="step"><b>04</b><span>Add voice, pacing and the supporting edits.</span></div>
-          <div class="step"><b>05</b><span>Export a finished video ready for your chosen platform.</span></div>
+          <article class="card"><div class="card-index">MODULE 01</div><h3>AI video foundations</h3><p>Understand the overall workflow and how to approach an AI product video from idea to finished content.</p></article>
+          <article class="card"><div class="card-index">MODULE 02</div><h3>Realistic AI presenter</h3><p>Learn how to create an AI host/presenter that can be used to introduce and promote a product.</p></article>
+          <article class="card"><div class="card-index">MODULE 03</div><h3>Product demonstration</h3><p>Learn how to structure a product presentation so the AI presenter can explain its features, benefits and relevant considerations using the product information you provide.</p></article>
+          <article class="card"><div class="card-index">MODULE 04</div><h3>AI scripts &amp; presentation</h3><p>Use AI to develop promotional scripts and shape the presentation around the product and audience.</p></article>
+          <article class="card"><div class="card-index">MODULE 05</div><h3>Basic video editing</h3><p>Learn the essential editing steps needed to turn generated clips into a cleaner, finished promotional video.</p></article>
+          <article class="card"><div class="card-index">MODULE 06</div><h3>Product &amp; business promotion</h3><p>Learn how to use your finished videos as promotional content for products, services and businesses across your chosen channels.</p></article>
+          <article class="card"><div class="card-index">MODULE 07</div><h3>Amazon Associates basics</h3><p>Learn the basics of creating an Amazon Associates account, obtaining your Associate ID, and understanding the affiliate workflow.</p></article>
+          <article class="card"><div class="card-index">MODULE 08</div><h3>Affiliate content workflow</h3><p>Learn how to combine product-focused AI videos with an affiliate promotion strategy and use the content as part of a broader marketing workflow.</p></article>
+          <article class="card"><div class="card-index">MODULE 09</div><h3>Using the skill for clients</h3><p>Explore how the same AI product-video skill can be adapted for businesses, brands and freelance creative work.</p></article>
         </div>
       </div>
     </section>
 
     <section class="block">
+      <div class="wrap workflow">
+        <div class="workflow-copy">
+          <div class="eyebrow">The workflow</div>
+          <h2>Stop collecting AI tools. Start building a repeatable process.</h2>
+          <p>The point isn't memorising a tool. It's understanding what should happen next when you need to create a product promotion.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><b>01</b><span>Choose the product, audience and goal.</span></div>
+          <div class="step"><b>02</b><span>Develop the hook, concept and promotional script.</span></div>
+          <div class="step"><b>03</b><span>Create the AI presenter, scenes and product visuals.</span></div>
+          <div class="step"><b>04</b><span>Generate the presentation and demonstrate the product.</span></div>
+          <div class="step"><b>05</b><span>Edit the clips into a clean, usable promotional video.</span></div>
+          <div class="step"><b>06</b><span>Publish or use the content for product, affiliate or business promotion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" style="padding-top:20px">
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow">Who it's for</div>
-          <h2>Built for beginners — and useful for creators.</h2>
-          <p>You don't need to be a filmmaker, editor or programmer to start.</p>
+          <h2>If you can learn the workflow, you can put the skill to work.</h2>
+          <p>You don't need to be a filmmaker or professional editor to start learning this process.</p>
         </div>
         <div class="audience">
-          <div class="audience-item"><h3>Affiliate marketers</h3><p>Create product-focused content that can support your affiliate strategy and drive people toward your product link.</p></div>
-          <div class="audience-item"><h3>Content creators</h3><p>Produce more visual content without needing to film every scene yourself.</p></div>
-          <div class="audience-item"><h3>Small business owners</h3><p>Make promotional videos for products and services without building a full production setup.</p></div>
-          <div class="audience-item"><h3>Freelancers</h3><p>Add AI-assisted video production to your existing creative services and portfolio.</p></div>
-          <div class="audience-item"><h3>Students & beginners</h3><p>Start with a phone-first skill and learn through practical examples rather than technical theory.</p></div>
-          <div class="audience-item"><h3>Anyone curious about AI video</h3><p>If you want a structured way to go from “I want to try this” to “I can make this,” start here.</p></div>
+          <div class="audience-item"><h3>Affiliate marketers</h3><p>Create product-focused content that can support your affiliate strategy.</p></div>
+          <div class="audience-item"><h3>Content creators</h3><p>Produce product and promotional videos without filming every scene yourself.</p></div>
+          <div class="audience-item"><h3>Small business owners</h3><p>Create marketing content for your products or services with an AI-assisted workflow.</p></div>
+          <div class="audience-item"><h3>Freelancers</h3><p>Add AI-assisted product video creation to your existing creative services.</p></div>
+          <div class="audience-item"><h3>Beginners</h3><p>Follow a structured, practical process instead of trying to figure out every step alone.</p></div>
+          <div class="audience-item"><h3>Creators exploring AI</h3><p>Turn curiosity about AI video into a concrete skill with a real marketing use case.</p></div>
+        </div>
+        <div class="expectations">
+          <strong>Important expectation</strong>
+          <p>AI tools change quickly. The masterclass focuses on the workflow and practical principles, while showing the tools used in the lessons. Specific tool interfaces, plans and availability can change over time.</p>
         </div>
       </div>
     </section>
 
-    <section class="block" id="more-examples">
+    <section class="block free-tools">
       <div class="wrap">
-        <div class="section-head">
-          <div class="video-label">More examples</div>
-          <h2>More ways you can use what you learn.</h2>
-          <p>These two slots are reserved for additional examples that show the range of content you can create after learning the workflow.</p>
-        </div>
-        <div class="video-grid">
-          <article class="video-card">
-            <div class="video-frame" data-video-slot="example-2">
-              <div class="video-placeholder"><div class="play" aria-hidden="true">▶</div><h3>Product promotion example</h3><p>Your second sample video will appear here.</p></div>
-            </div>
-            <div class="video-status">● Video sample slot</div>
-            <h3>Product promotion</h3><p>Show how a product can be turned into engaging promotional content.</p>
-          </article>
-          <article class="video-card">
-            <div class="video-frame" data-video-slot="example-3">
-              <div class="video-placeholder"><div class="play" aria-hidden="true">▶</div><h3>Affiliate content example</h3><p>Your third sample video will appear here.</p></div>
-            </div>
-            <div class="video-status">● Video sample slot</div>
-            <h3>Affiliate content</h3><p>Show how the same skill can be used for affiliate and social content.</p>
-          </article>
+        <div class="feature-banner">
+          <div><div class="eyebrow">No paid subscription required</div>
+            <h2>Follow the core workflow without being required to pay for expensive AI subscriptions.</h2>
+            <p>The core workflow taught in the masterclass is designed around free services and free-access options. You are not required to buy a paid monthly AI tool subscription to follow the core lessons.</p>
+          </div>
+          <div class="feature-checks"><div>✓ Free-service workflow</div><div>✓ No mandatory monthly AI subscription</div><div>✓ Practical alternatives are taught</div></div>
         </div>
       </div>
     </section>
 
-    <section class="block essentials">
+    <section class="block offer-section" id="offer">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Before you start</div>
-          <h2>Simple setup. Practical expectations.</h2>
-          <p>Everything here is designed to reduce the friction between having an idea and publishing a finished video.</p>
-        </div>
-        <div class="free-tools-note" role="note" aria-label="No paid AI subscriptions required">
-          <div class="free-tools-badge">✓ NO PAID AI SUBSCRIPTION REQUIRED</div>
-          <h3>Buy the masterclass once. No extra AI tool subscription.</h3>
-          <p>The core tools taught in this masterclass are free to use, so you can follow the workflow without paying for recurring AI subscriptions or buying extra AI credits just to make the videos.</p>
-        </div>
-        <div class="essentials-grid">
-          <div class="essential"><span>01</span><h3>Your phone</h3><p>Follow the core workflow from an Android phone or iPhone. A laptop is not required for the main process.</p></div>
-          <div class="essential"><span>02</span><h3>Internet access</h3><p>You will use online AI tools, so a reliable internet connection is important when following the lessons.</p></div>
-          <div class="essential"><span>03</span><h3>A willingness to practise</h3><p>The masterclass teaches a process. Your results will improve as you practise the workflow with different products and ideas.</p></div>
-          <div class="essential"><span>04</span><h3>Tools can change</h3><p>AI platforms update frequently. The goal is to understand the workflow so you can adapt as individual tools evolve.</p></div>
+        <div class="offer">
+          <div>
+            <div class="eyebrow">Launch offer</div>
+            <h2>Learn the skill. Build the video. Put it to work.</h2>
+            <p class="offer-copy">Get the AI Product Promotion Masterclass and learn the workflow from creation through basic editing and practical promotion.</p>
+            <div class="included">
+              <div><i>✓</i> AI product presenter workflow</div>
+              <div><i>✓</i> Product demonstration &amp; promotional videos</div>
+              <div><i>✓</i> AI-assisted script creation</div>
+              <div><i>✓</i> Basic video editing</div>
+              <div><i>✓</i> Amazon Associates setup basics</div>
+              <div><i>✓</i> Affiliate, product and business promotion workflow</div>
+            </div>
+          </div>
+          <div class="price-box">
+            <div class="price-label">Launch price</div>
+            <div class="price">₦3,800</div>
+            <div class="price-sub">One-time payment</div>
+            <a class="btn full" href="https://selar.com/4nu1810cf6" aria-label="Buy the AI Product Promotion Masterclass for ₦3,800">Get instant access →</a>
+            <div class="secure">Secure checkout via Selar · One-time payment</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="faq">
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow">Questions</div>
           <h2>Before you join.</h2>
+          <p>A few things you may want to know before buying.</p>
         </div>
         <div class="faq">
-          <details><summary>Do I need a laptop?</summary><p>The masterclass is designed around a phone-first workflow, so you can follow the core process using an Android phone or iPhone.</p></details>
-          <details><summary>Is this only for making AI avatars?</summary><p>No. The focus is broader: product videos, promotional content, social videos and affiliate marketing content, with AI presenters and scenes where they make sense.</p></details>
-          <details><summary>Do I need previous AI experience?</summary><p>No. The course is structured for beginners and focuses on a practical, step-by-step process.</p></details>
-          <details><summary>Do I need to pay for AI tool subscriptions?</summary><p>No. The core tools taught in the masterclass are free to use, so you do not need a recurring paid AI subscription or extra AI credits to follow the core video-creation workflow. Free tools and platforms can change their features or limits over time.</p></details>
-          <details><summary>Can this help with Amazon affiliate marketing?</summary><p>Yes, the course covers how to use AI video as part of product-focused affiliate content. You are responsible for following Amazon's current Associates rules, disclosure requirements and the rules of any platform you use.</p></details>
-          <details><summary>Will I automatically make money after taking the course?</summary><p>No course can guarantee income. The goal is to give you a practical skill and workflow you can apply to your own content, affiliate strategy or client work.</p></details>
-          <details><summary>How much is the masterclass?</summary><p>Access is currently offered as a one-time payment of ₦3,800 through Selar. Any payment, delivery or access terms shown on the checkout page should be treated as the final terms.</p></details>
+          <details open><summary>Is this only about generating AI videos?</summary><p>No. The masterclass covers the broader workflow: creating a realistic AI product presenter, generating promotional scripts, demonstrating products, basic editing, product/business promotion and the basics of using the content for Amazon affiliate marketing.</p></details>
+          <details><summary>Do I need to be an experienced video editor?</summary><p>No. The class is designed as a practical, beginner-friendly introduction. You will learn the basic editing steps needed to turn generated clips into a finished promotional video.</p></details>
+          <details><summary>Can I use the skill for my own business?</summary><p>Yes. The workflow can be adapted for products and services you want to promote. You can also use the skill as a creative service for businesses and clients.</p></details>
+          <details><summary>Does the masterclass guarantee affiliate earnings?</summary><p>No. The class teaches the setup and content workflow; it does not guarantee sales, commissions or income. Results depend on factors such as your products, audience, platform, execution and applicable affiliate-program rules.</p></details>
+          <details><summary>Will the AI tools stay exactly the same?</summary><p>AI tools change. The lessons focus on the workflow and how to apply the tools used in the training. Interfaces, pricing and availability may change over time.</p></details>
+          <details><summary>How do I get the masterclass?</summary><p>Click any “Get the Masterclass” button on this page. Checkout and delivery are handled through Selar after payment.</p></details>
         </div>
       </div>
     </section>
 
-    <section class="block" id="pricing">
+    <section class="final">
       <div class="wrap">
-        <div class="offer">
-          <div>
-            <div class="eyebrow">Start creating</div>
-            <h2>Learn the skill. Then put it to work.</h2>
-            <p class="offer-copy">Learn a practical AI video workflow you can apply to product promotions, social content, affiliate marketing and client projects.</p>
-            <div class="included">
-              <div><i>✓</i> No paid AI subscription required for the core workflow</div>
-              <div><i>✓</i> Practical AI video creation workflow</div>
-              <div><i>✓</i> Product & promotional video lessons</div>
-              <div><i>✓</i> Affiliate marketing content workflow</div>
-              <div><i>✓</i> Phone-first approach</div>
-              <div><i>✓</i> Beginner-friendly explanations</div>
-              <div><i>✓</i> One-time access</div>
-            </div>
-          </div>
-
-          <div class="price-box">
-            <div class="price-label">AI Video Creation Masterclass</div>
-            <div class="price">₦3,800</div>
-            <div class="price-sub">One-time payment</div>
-            <a class="cta" href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Join the Masterclass — ₦3,800 →</a>
-            <div class="secure">✓ Secure checkout · ✓ One-time payment · ✓ Selar delivery</div>
-          </div>
-        </div>
+        <div class="eyebrow">Ready to start?</div>
+        <h2>Create your next product promotional video with AI — and learn how to put it to work.</h2>
+        <p>Learn a practical AI product-promotion workflow you can use for your own products, affiliate content or business marketing.</p>
+        <a class="btn" href="https://selar.com/4nu1810cf6">Get the Masterclass — ₦3,800 <span>→</span></a>
+        <p class="micro">One-time payment · Instant access via Selar</p>
       </div>
     </section>
   </main>
 
-  <div class="mobile-cta"><a href="https://selar.com/4nu1810cf6" aria-label="Get access to the AI Video Creation Masterclass for ₦3,800">Get the Masterclass — ₦3,800 <span>→</span></a></div>
+  <div class="mobile-cta"><a href="https://selar.com/4nu1810cf6">Get the Masterclass — ₦3,800 <span>→</span></a></div>
 
   <footer>
     <div class="wrap footer-row">
-      <div class="brand">Growth <span>Motion</span></div>
-      <div class="footer-actions"><a href="#curriculum">View curriculum</a><a href="https://selar.com/4nu1810cf6">Get the masterclass →</a></div><p>© 2026 DetroPick. All rights reserved.</p>
+      <a class="brand" href="#top">Detro<span>Pick</span></a>
+      <div class="footer-links"><a href="#learn">What you'll learn</a><a href="#faq">FAQ</a><a href="https://selar.com/4nu1810cf6">Get the masterclass</a></div>
+      <p>© 2026 DetroPick. All rights reserved.</p>
     </div>
   </footer>
-
 <script>
-(function(){
-  var header=document.querySelector('.header');
-  if(!header) return;
-  var update=function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
-  update();
-  window.addEventListener('scroll', update, {passive:true});
-})();
+document.querySelectorAll('.video-card[data-vimeo-url]').forEach(function(card){
+  var url=(card.getAttribute('data-vimeo-url')||'').trim();
+  if(!url) return;
+  var frame=card.querySelector('.video-frame'), src=url;
+  var match=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if(match) src='https://player.vimeo.com/video/'+match[1]+'?dnt=1&title=0&byline=0&portrait=0';
+  var iframe=document.createElement('iframe');
+  iframe.src=src; iframe.title=card.querySelector('h3').textContent; iframe.loading='lazy';
+  iframe.allow='autoplay; fullscreen; picture-in-picture'; iframe.allowFullscreen=true;
+  frame.replaceChildren(iframe); card.classList.add('is-ready');
+});
 </script>
 </body>
 </html>
