@@ -41,3 +41,10 @@ Final video behavior update:
 - Only one sample video plays at a time.
 - Fullscreen remains available for the complete portrait video.
 - Internal navigation no longer leaves the page stuck at the video section after refresh; the landing page returns to the hero on reload.
+
+
+Duplicate/orphan video fix (September 10, 2026):
+- Vimeo iframe positioning is now limited to iframes inside `.video-frame`.
+- Any stray iframe inserted directly under a `.video-card` is hidden/removed so it cannot appear over the hero.
+- A MutationObserver also cleans up late-injected orphan iframes from third-party video scripts.
+- The hero section contains no video iframe and remains unaffected by the sample-video embeds.
