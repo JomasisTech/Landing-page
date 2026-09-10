@@ -25,3 +25,10 @@ The landing page uses the existing Selar checkout URL for the ₦3,800 mastercla
 - All internal section links resolve.
 - Checkout links use the existing Selar URL.
 - Core free-access/no-paid-subscription messaging retained.
+
+
+Final review update (September 2026):
+- CTA now says “See the examples” because the page contains three video examples.
+- Reviewed the deployed mobile layout and adjusted mobile hero/video spacing slightly for cleaner breathing room.
+- Vimeo embeds include inline playback behavior for mobile devices.
+- The hero device illustration remains intentionally device-neutral rather than imitating a specific iPhone model, keeping the design evergreen and focused on the AI product-promotion concept.
