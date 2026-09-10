@@ -34,6 +34,12 @@ Final review update (September 2026):
 - The hero device illustration remains intentionally device-neutral rather than imitating a specific iPhone model, keeping the design evergreen and focused on the AI product-promotion concept.
 
 
+Video card separation update (September 10, 2026):
+- Each sample video now sits in a subtle individual card with a light border, soft elevation and consistent spacing.
+- The card treatment visually separates the three examples without introducing heavy divider lines or changing the existing visual language.
+- Video playback, fullscreen behavior, Vimeo quality selection, one-video-at-a-time playback and the orphan-iframe protection are unchanged.
+
+
 Final video behavior update:
 - Center play control appears before playback.
 - While playing, the pause control fades away after a short delay and reappears when the visitor taps the video.
@@ -48,3 +54,9 @@ Duplicate/orphan video fix (September 10, 2026):
 - Any stray iframe inserted directly under a `.video-card` is hidden/removed so it cannot appear over the hero.
 - A MutationObserver also cleans up late-injected orphan iframes from third-party video scripts.
 - The hero section contains no video iframe and remains unaffected by the sample-video embeds.
+
+## Final visual separation review (September 10, 2026)
+- Each sample video now sits in a subtle individual card with light separation, spacing, rounded corners, and restrained elevation.
+- The card styling is CSS-only and does not add JavaScript or external assets.
+- The card itself does not use CSS `transform`, preserving the existing fullscreen fallback behavior; only the inner video frame retains its existing hover lift.
+- Existing Vimeo quality selection, one-video-at-a-time playback, orphan-iframe protection, and fullscreen behavior remain unchanged.
