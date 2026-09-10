@@ -32,3 +32,8 @@ Final review update (September 2026):
 - Reviewed the deployed mobile layout and adjusted mobile hero/video spacing slightly for cleaner breathing room.
 - Vimeo embeds include inline playback behavior for mobile devices.
 - The hero device illustration remains intentionally device-neutral rather than imitating a specific iPhone model, keeping the design evergreen and focused on the AI product-promotion concept.
+
+- Centered custom play/pause control added for clearer mobile interaction.
+- Tapping the video toggles play/pause.
+- Dedicated fullscreen button expands the entire video frame (including the custom controls) to device fullscreen when supported, with a fixed full-viewport fallback where the browser does not expose the Fullscreen API.
+- Vimeo Player SDK is used for reliable playback state; fullscreen uses the page-level Fullscreen API so the custom play/pause and exit controls remain visible while enlarged.
