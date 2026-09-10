@@ -34,12 +34,6 @@ Final review update (September 2026):
 - The hero device illustration remains intentionally device-neutral rather than imitating a specific iPhone model, keeping the design evergreen and focused on the AI product-promotion concept.
 
 
-Video card separation update (September 10, 2026):
-- Each sample video now sits in a subtle individual card with a light border, soft elevation and consistent spacing.
-- The card treatment visually separates the three examples without introducing heavy divider lines or changing the existing visual language.
-- Video playback, fullscreen behavior, Vimeo quality selection, one-video-at-a-time playback and the orphan-iframe protection are unchanged.
-
-
 Final video behavior update:
 - Center play control appears before playback.
 - While playing, the pause control fades away after a short delay and reappears when the visitor taps the video.
@@ -55,8 +49,18 @@ Duplicate/orphan video fix (September 10, 2026):
 - A MutationObserver also cleans up late-injected orphan iframes from third-party video scripts.
 - The hero section contains no video iframe and remains unaffected by the sample-video embeds.
 
-## Final visual separation review (September 10, 2026)
-- Each sample video now sits in a subtle individual card with light separation, spacing, rounded corners, and restrained elevation.
-- The card styling is CSS-only and does not add JavaScript or external assets.
-- The card itself does not use CSS `transform`, preserving the existing fullscreen fallback behavior; only the inner video frame retains its existing hover lift.
-- Existing Vimeo quality selection, one-video-at-a-time playback, orphan-iframe protection, and fullscreen behavior remain unchanged.
+
+Version 1.3.0 (September 10, 2026):
+- Added subtle individual cards around the three sample videos so each example is visually separated without introducing heavy divider lines.
+- Kept the video frames portrait and preserved the existing Vimeo controls, fullscreen behavior, one-video-at-a-time playback, and highest-available-quality request.
+- Optimized the orphan-iframe MutationObserver so it reacts to newly added nodes instead of rescanning the entire document for every DOM mutation.
+- Expanded reduced-motion handling to cover video/card hover animations as well as CTA and video controls.
+
+Version 1.4.0 — speed optimization (September 10, 2026):
+- Vimeo Player API is no longer loaded during the initial page load; it is fetched only when a sample-video card approaches the viewport.
+- Vimeo iframes are created only for cards that are about to be viewed, reducing initial third-party network requests and main-thread work.
+- Removed the fixed SVG turbulence/noise overlay to reduce paint and compositing work.
+- Removed CSS backdrop blur from the fixed header/mobile CTA and the unnecessary hero glow blur to reduce GPU/compositing cost.
+- Added lightweight `content-visibility:auto` containment to video cards so below-the-fold video content is cheaper to render.
+- Preserved one-video-at-a-time playback, highest-available-quality selection, fullscreen, orphan-iframe protection, responsive layout, and reduced-motion behavior.
+- No external font dependency and no additional image assets were introduced.
