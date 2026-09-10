@@ -527,7 +527,35 @@
     player.on('play', function(){ pauseOtherPlayers(player); setState(true); });
     player.on('pause', function(){ setState(false); });
     player.on('ended', function(){ setState(false); });
-    player.on('loaded', function(){ setState(false); });
+
+    // Ask Vimeo for the highest quality rendition that is actually available
+    // for this video. We do not hard-code 1080p because some videos may have
+    // 4K/2K available, while others may only have 720p/1080p. If Vimeo does
+    // not allow programmatic quality selection for the account/video, the
+    // request is safely ignored and Vimeo's normal adaptive quality remains.
+    function requestHighestVideoQuality(){
+      if (!player || typeof player.getQualities !== 'function' || typeof player.setQuality !== 'function') return;
+      player.getQualities().then(function(qualities){
+        if (!Array.isArray(qualities) || !qualities.length) return;
+
+        var available=qualities
+          .filter(function(q){ return q && q.id && q.id !== 'auto' && /^\d+p$/i.test(q.id); })
+          .sort(function(a,b){
+            return parseInt(b.id,10) - parseInt(a.id,10);
+          });
+
+        if (!available.length) return;
+        return player.setQuality(available[0].id);
+      }).catch(function(){
+        // Quality selection can be unavailable for some Vimeo plans/videos.
+        // Keep normal Vimeo adaptive playback rather than interrupting video.
+      });
+    }
+
+    player.on('loaded', function(){
+      setState(false);
+      requestHighestVideoQuality();
+    });
   });
 })();
 </script>
