@@ -9,7 +9,7 @@
   <meta property="og:description" content="Create realistic AI product promotional videos, edit them and learn how to put the skill to work for products, affiliate marketing and businesses.">
   <meta property="og:type" content="website">
   <title>AI Product Promotion Masterclass | DetroPick</title>
-  <!-- Landing page version: 1.6.0 -->
+  <!-- Landing page version: 1.8.0 -->
 
 
   <style>
@@ -48,7 +48,15 @@
     .hero-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:29px}
     .hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.pill{font-size:12px;color:#3f5146;background:transparent;border:0;padding:4px 0;border-radius:0}
     .stage{position:relative;min-height:520px;display:grid;place-items:center}
-    .hero-product-image{width:min(100%,560px);aspect-ratio:1/1;object-fit:cover;border-radius:28px;box-shadow:0 30px 75px rgba(15,45,27,.18);border:1px solid rgba(8,122,67,.14);position:relative;z-index:2}
+    .hero-video-card{width:min(100%,380px);margin:0 auto;content-visibility:visible;contain-intrinsic-size:auto;border-radius:28px;padding:12px 12px 20px;box-shadow:0 28px 70px rgba(15,45,27,.16);background:var(--surface);border:1px solid rgba(8,122,67,.14)}
+    .hero-video-card .video-frame{border-radius:20px;box-shadow:0 16px 38px rgba(14,37,23,.12)}
+    .hero-video-card:hover .video-frame{transform:none}
+    .hero-video-card .video-content h3{font-size:22px}
+    .hero-video-card .video-content p{font-size:13px}
+    .hero-video-card > h3{font-size:18px;margin:18px 8px 7px}
+    .hero-video-card > p{font-size:13px;color:var(--muted);line-height:1.65;margin:0 8px}
+    .hero-video-label{display:inline-flex;align-items:center;gap:8px;margin:2px 8px 0;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .hero-video-label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(184,230,107,.18)}
                                                         .trust-strip{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.trust-strip strong{display:block;font:800 17px ui-sans-serif}.trust-strip span{font-size:12px;color:#7a867f}
 
     section{scroll-margin-top:90px}.block{padding:100px 0}.section-head{max-width:700px;margin-bottom:38px}.section-head h2{font-size:clamp(34px,4.4vw,55px);margin:14px 0}.section-head p{font-size:16px;color:var(--muted)}
@@ -76,6 +84,18 @@
     /* Offer */
     .offer-section{padding-top:65px}.offer{background:linear-gradient(135deg,#0d1711,#14261a);border-radius:26px;padding:52px;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center;overflow:hidden;position:relative}.offer:before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:rgba(184,230,107,.08);right:-170px;top:-200px}.offer .eyebrow{color:var(--lime)}.offer h2{font-size:clamp(35px,4.3vw,54px);color:#fff;margin:14px 0}.offer-copy{color:#b8c5bc;max-width:630px}.included{display:grid;gap:10px;margin-top:24px}.included div{font-size:14px;color:#d3ddd6}.included i{font-style:normal;color:var(--lime);margin-right:8px}.price-box{position:relative;z-index:2;background:#fff;border-radius:20px;padding:27px;box-shadow:0 22px 55px rgba(0,0,0,.2)}.price-label{font:800 11px ui-sans-serif;color:var(--green);letter-spacing:.12em;text-transform:uppercase}.price{font:800 47px ui-sans-serif;letter-spacing:-.05em;margin-top:6px}.price-sub{font-size:12px;color:#77827b;margin-bottom:20px}.secure{font-size:11px;color:#78837c;text-align:center;margin-top:11px;line-height:1.5}
 
+
+    /* Course preview */
+    .course-preview{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .course-preview-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .course-preview-copy h2{font-size:clamp(34px,4.2vw,52px);margin:14px 0}
+    .course-preview-copy p{color:var(--muted);max-width:560px}
+    .preview-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .preview-meta span{font-size:12px;font-weight:750;color:#3f5146;background:var(--soft);border:1px solid rgba(8,122,67,.1);padding:8px 11px;border-radius:999px}
+    .course-preview-media{background:#eef6eb;border:1px solid rgba(8,122,67,.14);border-radius:28px;padding:18px;box-shadow:0 22px 55px rgba(14,37,23,.1)}
+    .course-preview-media img{width:100%;max-height:720px;object-fit:contain;object-position:top center;border-radius:18px;background:#0c120e}
+    .preview-caption{text-align:center;font-size:11px;color:#7a867f;margin:12px 4px 0}
+
     /* FAQ */
     .faq{max-width:850px}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font:700 16px ui-sans-serif}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";font-size:22px;color:var(--green);font-weight:400}.faq details[open] summary:after{content:"–"}.faq details p{padding:12px 38px 0 0;font-size:14px;color:var(--muted)}
 
@@ -85,12 +105,12 @@
     .mobile-cta{display:none}
 
     @media(max-width:900px){
-      .hero-grid,.problem-grid,.workflow,.offer{grid-template-columns:1fr;gap:45px}.stage{min-height:auto}.hero-product-image{max-width:560px}.outcome-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.offer{padding:38px}.price-box{max-width:430px;width:100%;margin:auto}
+      .hero-grid,.problem-grid,.workflow,.offer,.course-preview-grid{grid-template-columns:1fr;gap:45px}.stage{min-height:auto}.hero-video-card{max-width:430px}.outcome-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.offer{padding:38px}.price-box{max-width:430px;width:100%;margin:auto}
     }
     @media(max-width:640px){
       .wrap{width:min(calc(100% - 28px),var(--max))}.header{position:fixed}.nav{height:64px}.nav-links .nav-link{display:none}.nav .btn{padding:10px 13px;font-size:11px}
-      .hero{padding:116px 0 72px}.stage{min-height:auto}.hero-product-image{width:min(100%,520px);border-radius:22px}.hero h1{font-size:clamp(39px,12vw,54px);margin-top:14px}.hero-copy{font-size:16px}.hero-actions .btn{width:100%}.hero-proof{gap:7px}.pill{font-size:11px}.stage{min-height:445px}trust-strip{grid-template-columns:1fr;margin-top:36px;gap:13px}.trust-strip div{display:grid;grid-template-columns:110px 1fr;align-items:baseline}.block{padding:75px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:clamp(32px,9.5vw,45px)}
-      .video-section{padding-top:28px}.video-card{padding:8px 8px 14px;border-radius:20px}.video-frame{border-radius:16px}.video-card h3{margin:15px 5px 6px}.video-card>p{margin:0 5px}.play{width:58px;height:58px;font-size:20px}.video-content h3{font-size:21px}.video-content p{font-size:12px}.problem-grid{gap:30px}.problem-intro{font-size:15px}.outcome-grid,.cards,.audience{grid-template-columns:1fr}.outcome{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.outcome:last-child{border-bottom:0}.card{min-height:0}.card h3{margin-top:27px}.workflow{gap:30px}.offer{padding:30px 20px;border-radius:21px}.offer h2{font-size:36px}.price{font-size:43px}.final{padding:70px 0 105px}.final h2{font-size:39px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:95;padding:9px 12px;background:rgba(248,250,247,.94);border-top:1px solid var(--line)}.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:800}.mobile-cta span{margin-left:8px}.micro{font-size:11px}
+      .hero{padding:116px 0 72px}.stage{min-height:auto}.hero-video-card{width:min(100%,380px);border-radius:22px;padding:9px 9px 17px}.hero-video-card .video-frame{border-radius:16px}.hero-video-card > h3{margin-top:15px}.hero h1{font-size:clamp(39px,12vw,54px);margin-top:14px}.hero-copy{font-size:16px}.hero-actions .btn{width:100%}.hero-proof{gap:7px}.pill{font-size:11px}.stage{min-height:445px}trust-strip{grid-template-columns:1fr;margin-top:36px;gap:13px}.trust-strip div{display:grid;grid-template-columns:110px 1fr;align-items:baseline}.block{padding:75px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:clamp(32px,9.5vw,45px)}
+      .video-section{padding-top:28px}.video-card{padding:8px 8px 14px;border-radius:20px}.video-frame{border-radius:16px}.video-card h3{margin:15px 5px 6px}.video-card>p{margin:0 5px}.play{width:58px;height:58px;font-size:20px}.video-content h3{font-size:21px}.video-content p{font-size:12px}.problem-grid{gap:30px}.problem-intro{font-size:15px}.outcome-grid,.cards,.audience{grid-template-columns:1fr}.outcome{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.outcome:last-child{border-bottom:0}.card{min-height:0}.card h3{margin-top:27px}.workflow{gap:30px}.course-preview-grid{gap:30px}.course-preview-media{padding:12px;border-radius:22px}.course-preview-media img{border-radius:14px;max-height:none}.offer{padding:30px 20px;border-radius:21px}.offer h2{font-size:36px}.price{font-size:43px}.final{padding:70px 0 105px}.final h2{font-size:39px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:95;padding:9px 12px;background:rgba(248,250,247,.94);border-top:1px solid var(--line)}.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:800}.mobile-cta span{margin-left:8px}.micro{font-size:11px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.video-card,.video-card .video-frame,.video-toggle,.video-fullscreen{transition:none!important}.btn:hover,.video-card:hover .video-frame,.video-toggle:hover,.video-fullscreen:hover{transform:none!important}}
   @media (max-width: 850px){.video-grid{grid-template-columns:1fr}.feature-banner{grid-template-columns:1fr;padding:28px 24px;gap:25px}}
@@ -117,13 +137,18 @@
           <p class="hero-copy">Learn how to create realistic AI product presenters, build promotional videos, edit them, and use them to market products, affiliate offers and businesses.</p>
           <div class="hero-actions">
             <a class="btn" href="https://selar.com/5ucg98b793">Join the Masterclass — ₦3,800 <span>→</span></a>
-            <a class="btn light" href="#see-it-in-action">See the examples ↓</a>
+            <a class="btn light" href="#see-it-in-action">See more examples ↓</a>
           </div>
           <p class="micro">One-time payment · Instant access via Selar · Learn at your own pace</p>
         </div>
 
-        <div class="stage" aria-label="AI Product Promotion Masterclass promotional image">
-          <img class="hero-product-image" src="ai-product-promotion-masterclass.jpg" alt="AI Product Promotion Masterclass promotional image showing a realistic AI product video demonstration">
+        <div class="stage" aria-label="Featured promotional video example for Hussy Footwear">
+          <article class="video-card hero-video-card" data-vimeo-url="https://vimeo.com/1228383355">
+            <div class="video-frame"><div class="video-content"><div class="play" aria-hidden="true">▶</div><h3>Hussy Footwear</h3><p>Example promotional video created with AI for a real brand.</p></div></div>
+            <div class="hero-video-label">Real brand example</div>
+            <h3>Promotional video created for Hussy Footwear</h3>
+            <p>A real-world example of how AI can be used to create polished product-promotion content for a brand.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -131,9 +156,9 @@
     <section class="block video-section" id="see-it-in-action">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">See the examples</div>
-          <h2>Don't just hear about it. See what you're learning to create.</h2>
-          <p>See real examples of the kind of AI product videos you will learn to create. The workflow covers the presenter, product demonstration, promotional message, editing and practical ways to use the finished video.</p>
+          <div class="eyebrow">More examples</div>
+          <h2>See more of what you can create.</h2>
+          <p>The Hussy Footwear example above is a real brand promotional video created with AI. Here are more examples of the product-promotion style and workflow taught in the masterclass.</p>
         </div>
         <div class="video-grid" aria-label="AI product promotion video examples">
           <article class="video-card" data-vimeo-url="https://vimeo.com/1225432485">
@@ -209,6 +234,25 @@
       </div>
     </section>
 
+    <section class="block course-preview" id="inside">
+      <div class="wrap course-preview-grid">
+        <div class="course-preview-copy">
+          <div class="eyebrow">Inside the masterclass</div>
+          <h2>See what you're actually getting.</h2>
+          <p>This isn't just a list of topics. The masterclass includes nine practical video modules that take you through the process from creating your AI character to producing, editing and promoting product videos.</p>
+          <div class="preview-meta" aria-label="Course highlights">
+            <span>9 video modules</span>
+            <span>Step-by-step training</span>
+            <span>One-time purchase</span>
+          </div>
+        </div>
+        <div class="course-preview-media">
+          <img src="course-modules-preview.jpg" alt="Preview showing the nine video modules included in the DetroPick AI Product Promotion Masterclass" loading="lazy" decoding="async">
+          <p class="preview-caption">A real preview of the nine modules included in the masterclass.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="block">
       <div class="wrap workflow">
         <div class="workflow-copy">
@@ -244,7 +288,7 @@
         </div>
         <div class="expectations">
           <strong>Important expectation</strong>
-          <p>AI tools change quickly. The masterclass focuses on the workflow and practical principles, while showing the tools used in the lessons. Specific tool interfaces, plans and availability can change over time.</p>
+          <p>AI tools and affiliate programs change quickly. The masterclass focuses on the workflow and practical principles, while showing the tools used in the lessons. Specific tool interfaces, plans, eligibility, payment methods and availability can change over time. Amazon Associates approval and payment options are subject to Amazon's rules and your account eligibility.</p>
         </div>
       </div>
     </section>
@@ -252,11 +296,11 @@
     <section class="block free-tools">
       <div class="wrap">
         <div class="feature-banner">
-          <div><div class="eyebrow">No paid subscription required</div>
-            <h2>Learn the core workflow without paying for an AI subscription.</h2>
-            <p>The core lessons use free services and free-access options. You do not need to buy a paid monthly AI subscription to follow the main workflow.</p>
+          <div><div class="eyebrow">Designed around free-access options</div>
+            <h2>Learn the core workflow without a mandatory AI subscription.</h2>
+            <p>The core lessons are designed around free services and free-access options. Tool plans, limits and availability can change over time, so the course focuses on a practical workflow rather than promising permanent access to any specific free tier.</p>
           </div>
-          <div class="feature-checks"><div>✓ Free-service workflow</div><div>✓ No mandatory monthly AI subscription</div><div>✓ Practical alternatives are taught</div></div>
+          <div class="feature-checks"><div>✓ Free-access workflow</div><div>✓ No mandatory monthly AI subscription</div><div>✓ Practical workflow principles</div></div>
         </div>
       </div>
     </section>
@@ -301,6 +345,7 @@
           <details><summary>Do I need to be an experienced video editor?</summary><p>No. The class is designed as a practical, beginner-friendly introduction. You will learn the basic editing steps needed to turn generated clips into a finished promotional video.</p></details>
           <details><summary>Can I use the skill for my own business?</summary><p>Yes. The workflow can be adapted for products and services you want to promote. You can also use the skill as a creative service for businesses and clients.</p></details>
           <details><summary>Does the masterclass guarantee affiliate earnings?</summary><p>No. The class teaches the setup and content workflow; it does not guarantee sales, commissions or income. Results depend on factors such as your products, audience, platform, execution and applicable affiliate-program rules.</p></details>
+          <details><summary>Will Amazon Associates requirements be the same for everyone?</summary><p>No. Amazon Associates approval, eligibility requirements and available payment methods can vary by account, location and Amazon's current rules. The course demonstrates the process covered in the training; it does not guarantee approval or access to any particular payment method.</p></details>
           <details><summary>Will the AI tools stay exactly the same?</summary><p>AI tools change. The lessons focus on the workflow and how to apply the tools used in the training. Interfaces, pricing and availability may change over time.</p></details>
           <details><summary>How do I get the masterclass?</summary><p>Click any “Get the Masterclass” button on this page. You will complete your payment through Selar and then be redirected to the post-purchase thank-you page with instructions for getting your masterclass access.</p></details>
         </div>
