@@ -56,7 +56,7 @@ Version 1.3.0 (September 10, 2026):
 - Optimized the orphan-iframe MutationObserver so it reacts to newly added nodes instead of rescanning the entire document for every DOM mutation.
 - Expanded reduced-motion handling to cover video/card hover animations as well as CTA and video controls.
 
-Version 1.4.0 — speed optimization (September 10, 2026):
+Version 1.5.0 — speed optimization (September 10, 2026):
 - Vimeo Player API is no longer loaded during the initial page load; it is fetched only when a sample-video card approaches the viewport.
 - Vimeo iframes are created only for cards that are about to be viewed, reducing initial third-party network requests and main-thread work.
 - Removed the fixed SVG turbulence/noise overlay to reduce paint and compositing work.
@@ -64,3 +64,7 @@ Version 1.4.0 — speed optimization (September 10, 2026):
 - Added lightweight `content-visibility:auto` containment to video cards so below-the-fold video content is cheaper to render.
 - Preserved one-video-at-a-time playback, highest-available-quality selection, fullscreen, orphan-iframe protection, responsive layout, and reduced-motion behavior.
 - No external font dependency and no additional image assets were introduced.
+
+
+## Curriculum update
+The curriculum section, learning outcomes, offer inclusions, video-proof note, and FAQ were aligned with the current 9-module masterclass outline supplied by the creator. No video URLs, checkout URLs, or video-player behavior were changed.
