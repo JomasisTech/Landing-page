@@ -1,6 +1,6 @@
 # DetroPick — AI Product Promotion Masterclass Landing Page
 
-Final deployment-ready landing page with the three selected sample videos embedded from Vimeo.
+Final deployment-ready landing page with the three selected sample videos embedded from Vimeo and the supplied masterclass product image in the hero.
 
 ## Files
 - `index.html` — complete landing page
@@ -68,3 +68,10 @@ Version 1.5.0 — speed optimization (September 10, 2026):
 
 ## Curriculum update
 The curriculum section, learning outcomes, offer inclusions, video-proof note, and FAQ were aligned with the current 9-module masterclass outline supplied by the creator. No video URLs, checkout URLs, or video-player behavior were changed.
+
+Version 1.6.0 — hero visual update (September 19, 2026):
+- Replaced the CSS-generated phone/presenter hero illustration with the supplied AI Product Promotion Masterclass promotional image.
+- Removed the old floating hero labels and phone-specific visual elements from the hero; the remaining “Realistic AI product host” text belongs to the separate video-example section.
+- Kept the existing hero headline, description, pricing CTA, and responsive behavior.
+- Added `ai-product-promotion-masterclass.jpg` as a local deployment asset so the hero image works without an external image host.
+- Confirmed the bundled image SHA-256 matches the supplied source image exactly.

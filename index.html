@@ -9,7 +9,7 @@
   <meta property="og:description" content="Create realistic AI product promotional videos, edit them and learn how to put the skill to work for products, affiliate marketing and businesses.">
   <meta property="og:type" content="website">
   <title>AI Product Promotion Masterclass | DetroPick</title>
-  <!-- Landing page version: 1.4.0 -->
+  <!-- Landing page version: 1.6.0 -->
 
 
   <style>
@@ -48,20 +48,8 @@
     .hero-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:29px}
     .hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.pill{font-size:12px;color:#3f5146;background:transparent;border:0;padding:4px 0;border-radius:0}
     .stage{position:relative;min-height:520px;display:grid;place-items:center}
-    .glow{position:absolute;width:410px;height:410px;border-radius:50%;background:rgba(8,122,67,.1);}
-    .phone{width:286px;height:550px;padding:11px;border-radius:38px;background:#18231b;border:1px solid rgba(8,122,67,.25);box-shadow:0 34px 80px rgba(15,45,27,.22);transform:rotate(3deg);position:relative;z-index:2}
-    .screen{height:100%;border-radius:29px;overflow:hidden;position:relative;background:linear-gradient(155deg,#d9ead7 0%,#91ad96 50%,#34453b 100%)}
-    .screen:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.22),transparent 35%)}
-    .screen-top{display:flex;justify-content:space-between;color:#fff;font-size:9px;padding:15px 15px;position:relative;z-index:2}
-    .presenter{position:absolute;inset:58px 17px 69px;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 53% 30%,#d8bda1 0 9%,transparent 9.5%),radial-gradient(ellipse at 53% 47%,#765c4b 0 18%,transparent 18.5%),linear-gradient(140deg,#65766d 0 35%,#27342d 36% 62%,#b99870 100%)}
-    .presenter:before{content:"AI PRODUCT HOST";position:absolute;left:12px;top:12px;background:rgba(0,0,0,.45);color:#fff;font:800 8px ui-sans-serif,sans-serif;letter-spacing:.1em;padding:6px 8px;border-radius:5px}
-    .product{position:absolute;right:18px;bottom:58px;width:65px;height:92px;border-radius:10px 10px 14px 14px;background:linear-gradient(160deg,#f8f2e9,#d9d0c2);box-shadow:0 13px 22px rgba(0,0,0,.25);transform:rotate(-4deg)}
-    .product:before{content:"SKINCARE";position:absolute;left:7px;right:7px;top:32px;text-align:center;font:800 7px ui-sans-serif;color:#68736c;letter-spacing:.08em}
-    .product:after{content:"";position:absolute;top:-13px;left:18px;width:29px;height:18px;border-radius:5px 5px 2px 2px;background:#ebe4d9}
-    .screen-caption{position:absolute;left:13px;right:13px;bottom:14px;background:rgba(4,20,12,.72);color:#fff;border-radius:9px;padding:9px 10px;font:700 9px ui-sans-serif,sans-serif;letter-spacing:.03em}
-    .float{position:absolute;z-index:3;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 18px 45px rgba(0,0,0,.16)}
-    .float strong{display:block;font:800 12px ui-sans-serif}.float small{font-size:11px;color:var(--muted)}.float .check{color:var(--green);margin-right:5px}.float.one{right:1%;top:14%}.float.two{left:0;bottom:17%}
-    .trust-strip{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.trust-strip strong{display:block;font:800 17px ui-sans-serif}.trust-strip span{font-size:12px;color:#7a867f}
+    .hero-product-image{width:min(100%,560px);aspect-ratio:1/1;object-fit:cover;border-radius:28px;box-shadow:0 30px 75px rgba(15,45,27,.18);border:1px solid rgba(8,122,67,.14);position:relative;z-index:2}
+                                                        .trust-strip{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.trust-strip strong{display:block;font:800 17px ui-sans-serif}.trust-strip span{font-size:12px;color:#7a867f}
 
     section{scroll-margin-top:90px}.block{padding:100px 0}.section-head{max-width:700px;margin-bottom:38px}.section-head h2{font-size:clamp(34px,4.4vw,55px);margin:14px 0}.section-head p{font-size:16px;color:var(--muted)}
 
@@ -97,11 +85,11 @@
     .mobile-cta{display:none}
 
     @media(max-width:900px){
-      .hero-grid,.problem-grid,.workflow,.offer{grid-template-columns:1fr;gap:45px}.stage{min-height:480px}.outcome-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.offer{padding:38px}.price-box{max-width:430px;width:100%;margin:auto}
+      .hero-grid,.problem-grid,.workflow,.offer{grid-template-columns:1fr;gap:45px}.stage{min-height:auto}.hero-product-image{max-width:560px}.outcome-grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.offer{padding:38px}.price-box{max-width:430px;width:100%;margin:auto}
     }
     @media(max-width:640px){
       .wrap{width:min(calc(100% - 28px),var(--max))}.header{position:fixed}.nav{height:64px}.nav-links .nav-link{display:none}.nav .btn{padding:10px 13px;font-size:11px}
-      .hero{padding:116px 0 72px}.hero h1{font-size:clamp(39px,12vw,54px);margin-top:14px}.hero-copy{font-size:16px}.hero-actions .btn{width:100%}.hero-proof{gap:7px}.pill{font-size:11px}.stage{min-height:445px}.phone{width:238px;height:458px;border-radius:31px}.screen{border-radius:23px}.float{padding:10px 11px}.float strong{font-size:10px}.float small{font-size:9px}.float.one{right:-2%;top:10%}.float.two{left:-2%;bottom:13%}.trust-strip{grid-template-columns:1fr;margin-top:36px;gap:13px}.trust-strip div{display:grid;grid-template-columns:110px 1fr;align-items:baseline}.block{padding:75px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:clamp(32px,9.5vw,45px)}
+      .hero{padding:116px 0 72px}.stage{min-height:auto}.hero-product-image{width:min(100%,520px);border-radius:22px}.hero h1{font-size:clamp(39px,12vw,54px);margin-top:14px}.hero-copy{font-size:16px}.hero-actions .btn{width:100%}.hero-proof{gap:7px}.pill{font-size:11px}.stage{min-height:445px}trust-strip{grid-template-columns:1fr;margin-top:36px;gap:13px}.trust-strip div{display:grid;grid-template-columns:110px 1fr;align-items:baseline}.block{padding:75px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:clamp(32px,9.5vw,45px)}
       .video-section{padding-top:28px}.video-card{padding:8px 8px 14px;border-radius:20px}.video-frame{border-radius:16px}.video-card h3{margin:15px 5px 6px}.video-card>p{margin:0 5px}.play{width:58px;height:58px;font-size:20px}.video-content h3{font-size:21px}.video-content p{font-size:12px}.problem-grid{gap:30px}.problem-intro{font-size:15px}.outcome-grid,.cards,.audience{grid-template-columns:1fr}.outcome{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.outcome:last-child{border-bottom:0}.card{min-height:0}.card h3{margin-top:27px}.workflow{gap:30px}.offer{padding:30px 20px;border-radius:21px}.offer h2{font-size:36px}.price{font-size:43px}.final{padding:70px 0 105px}.final h2{font-size:39px}.footer-row{flex-direction:column;align-items:flex-start}.mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:95;padding:9px 12px;background:rgba(248,250,247,.94);border-top:1px solid var(--line)}.mobile-cta a{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:800}.mobile-cta span{margin-left:8px}.micro{font-size:11px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.video-card,.video-card .video-frame,.video-toggle,.video-fullscreen{transition:none!important}.btn:hover,.video-card:hover .video-frame,.video-toggle:hover,.video-fullscreen:hover{transform:none!important}}
@@ -134,17 +122,8 @@
           <p class="micro">One-time payment · Instant access via Selar · Learn at your own pace</p>
         </div>
 
-        <div class="stage" aria-label="Illustration of an AI product promotional video">
-          <div class="glow"></div>
-          <div class="float one"><strong><span class="check">✓</span>AI product host</strong><small>Present and demonstrate a product</small></div>
-          <div class="float two"><strong><span class="check">✓</span>Marketing-ready content</strong><small>Turn the finished video into promotion</small></div>
-          <div class="phone">
-            <div class="screen">
-              <div class="screen-top"><span>9:41</span><span>● ● ●</span></div>
-              <div class="presenter"><div class="product"></div></div>
-              <div class="screen-caption">REALISTIC AI PRODUCT PROMOTION</div>
-            </div>
-          </div>
+        <div class="stage" aria-label="AI Product Promotion Masterclass promotional image">
+          <img class="hero-product-image" src="ai-product-promotion-masterclass.jpg" alt="AI Product Promotion Masterclass promotional image showing a realistic AI product video demonstration">
         </div>
       </div>
     </section>
