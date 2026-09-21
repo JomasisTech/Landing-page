@@ -1,3 +1,8 @@
+## Version 1.8.2 changes
+
+- Corrected the featured video labeling to match the supplied Vimeo page title: “Hussy's brand”.
+- Kept the featured Vimeo URL `https://vimeo.com/1228908513` unchanged.
+
 ## Version 1.8.1 changes
 
 - Corrected the featured client brand name to “Fussy Footwear Brand”.
@@ -10,9 +15,9 @@ Version 1.8.0 — September 19, 2026.
 
 ## What changed in 1.8.0
 - Replaced the static hero promotional image with a featured real-brand Vimeo example.
-- Featured video: Fussy Footwear — `https://vimeo.com/1228383355`.
+- Featured video: Hussy's brand — `https://vimeo.com/1228908513`.
 - Added clear labeling: “Real brand example” and “Promotional video created for Fussy Footwear.”
-- The Fussy Footwear example is now the first visual proof visitors see after the hero copy.
+- The Hussy's brand example is now the first visual proof visitors see after the hero copy.
 - Updated the following sample-video section to “More examples” so the page hierarchy is clear and the Fussy Footwear project is treated as the featured example.
 - Removed the old hero promotional image asset because it is no longer used.
 - Preserved the existing three additional Vimeo examples, Selar checkout, curriculum, course-preview screenshot, responsive layout, one-video-at-a-time playback, fullscreen behavior, lazy Vimeo loading, and accessibility behavior.
@@ -25,7 +30,7 @@ Version 1.8.0 — September 19, 2026.
 Upload the contents of this ZIP directly to the site root. There is no wrapping folder.
 
 ## Featured brand example
-- Fussy Footwear — `https://vimeo.com/1228383355`
+- Hussy's brand — `https://vimeo.com/1228908513`
 
 ## Additional sample videos
 1. CeraVe — `https://vimeo.com/1225432485`
