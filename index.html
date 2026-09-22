@@ -635,47 +635,69 @@
 <script>
 (function(){
   var maintenanceMode = true;
-  var durationSeconds = 30 * 60;
-  var countdownKey = 'detropick-maintenance-start';
+  var durationSeconds = 15 * 60;
+  var countdownKey = 'detropick-maintenance-end';
+  var completedKey = 'detropick-maintenance-completed';
   var overlay = document.getElementById('maintenance-mode');
   var timeEl = document.getElementById('maintenance-time');
   var progressEl = document.getElementById('maintenance-progress-bar');
   var noteEl = document.getElementById('maintenance-note');
   if(!overlay) return;
 
-  if(!maintenanceMode){
+  function restoreLandingPage(){
     overlay.remove();
     document.body.classList.remove('maintenance-active');
+  }
+
+  if(!maintenanceMode){
+    restoreLandingPage();
     return;
   }
 
-  var startedAt;
+  var endAt;
+  var completed = false;
   try {
-    startedAt = Number(localStorage.getItem(countdownKey));
+    completed = localStorage.getItem(completedKey) === '1';
+    endAt = Number(localStorage.getItem(countdownKey));
   } catch (e) {
-    startedAt = NaN;
+    endAt = NaN;
   }
-  if(!Number.isFinite(startedAt) || startedAt <= 0 || Date.now() - startedAt > durationSeconds * 1000){
-    startedAt = Date.now();
-    try { localStorage.setItem(countdownKey, String(startedAt)); } catch (e) {}
+
+  // Once this browser has completed the maintenance window, never restart it on refresh.
+  if(completed){
+    restoreLandingPage();
+    return;
+  }
+
+  if(!Number.isFinite(endAt) || endAt <= Date.now()){
+    endAt = Date.now() + durationSeconds * 1000;
+    try { localStorage.setItem(countdownKey, String(endAt)); } catch (e) {}
   }
 
   function render(){
-    var elapsed = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
-    var remaining = Math.max(0, durationSeconds - elapsed);
+    var remaining = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
     var minutes = Math.floor(remaining / 60);
     var seconds = remaining % 60;
     timeEl.textContent = String(minutes).padStart(2,'0') + ':' + String(seconds).padStart(2,'0');
     progressEl.style.width = (remaining / durationSeconds * 100) + '%';
+
     if(remaining === 0){
-      noteEl.textContent = 'Maintenance time is up. Please refresh the page to continue.';
+      try {
+        localStorage.setItem(completedKey, '1');
+        localStorage.removeItem(countdownKey);
+      } catch (e) {}
+      noteEl.textContent = 'Maintenance is complete. Welcome back!';
+      setTimeout(restoreLandingPage, 700);
       return false;
     }
     return true;
   }
 
-  render();
-  var timer = setInterval(function(){ if(!render()) clearInterval(timer); },1000);
+  if(render()){
+    var timer = setInterval(function(){
+      if(!render()) clearInterval(timer);
+    }, 1000);
+  }
 })();
 </script>
 
